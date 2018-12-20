@@ -7,4 +7,5 @@ dist
 *.swo
 .idea/
 .vscode/
+.logs/
 .eslintrc

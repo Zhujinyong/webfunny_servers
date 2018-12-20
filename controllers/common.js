@@ -35,7 +35,7 @@ class Common {
     //       city = "未知";
     //     }
     //   });
-    const logInfoStr = ctx.request.body.data.replace(/"\\":/g, '"')
+    const logInfoStr = ctx.request.body.data.replace(/\\": Script/g, '"')
     const param = JSON.parse(logInfoStr)
     const logArray = param.logInfo.split("$$$")
     for(var i = 0; i < logArray.length; i ++) {
