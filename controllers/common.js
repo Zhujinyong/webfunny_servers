@@ -66,7 +66,7 @@ class Common {
       logInfo.monitorIp = clientIpString
       logInfo.province = province
       logInfo.city = city
-      logInfo.mobile = ""
+      logInfo.firstUserParam = ""
       switch (logInfo.uploadType) {
         case "ELE_BEHAVIOR":
           await BehaviorInfoModel.createBehaviorInfo(logInfo);
