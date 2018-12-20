@@ -15,7 +15,7 @@ log.error = function(ctx, error, resTime) {
 };
 
 log.errorDetail = function(param, err) {
-  if (param && error) {
+  if (param && err) {
     var logText = "param: " + param + "\n";
     //错误名称
     logText += "err name: " + err.name + "\n";
