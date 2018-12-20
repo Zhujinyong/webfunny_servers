@@ -44,7 +44,7 @@ class Common {
       if (!logArray[i]) continue;
       let logInfo = null;
       try {
-        logInfo = JSON.parse('\"' +logArray[i] + '\"');
+        logInfo = JSON.parse(logArray[i]);
       } catch (error) {
         log.error(ctx, error, 0);
       }
