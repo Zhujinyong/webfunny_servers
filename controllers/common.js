@@ -43,10 +43,12 @@ class Common {
     for(var i = 0; i < logArray.length; i ++) {
       if (!logArray[i]) continue;
       let logInfo = null;
+      let logStr = ""
       try {
-        logInfo = JSON.parse("\"" + logArray[i] + "\"");
+        logStr = ("\"" + logArray[i] + "\"").replace('": ', '')
+        logInfo = JSON.parse(logStr);
       } catch (error) {
-        log.errorDetail(logArray[i], error);
+        log.errorDetail(logStr, error);
       }
       if (!logInfo) continue;
       if (typeof logInfo === "string") {
