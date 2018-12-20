@@ -53,12 +53,20 @@ class Common {
         log.errorDetail(logStr, error);
       }
       if (!logInfo) continue;
+
       if (typeof logInfo === "string") {
-        logInfo = JSON.parse(logInfo)
+        let logInfoTemp = logInfo
+        try {
+          logInfo = JSON.parse(logInfoTemp);
+        } catch (error) {
+          log.errorDetail(logInfoTemp, error);
+        }
       }
+
       logInfo.monitorIp = clientIpString
       logInfo.province = province
       logInfo.city = city
+      logInfo.mobile = ""
       switch (logInfo.uploadType) {
         case "ELE_BEHAVIOR":
           await BehaviorInfoModel.createBehaviorInfo(logInfo);
