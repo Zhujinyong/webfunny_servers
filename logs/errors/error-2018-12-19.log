@@ -1,0 +1,1228 @@
+[2018-12-19T12:52:02.359] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 33
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:52:02.514] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:52:02.692] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 195
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:52:04.385] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1761
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:52:21.394] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 18890
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:53:48.569] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 32
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:53:48.761] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 13
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:53:48.841] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 114
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:53:50.786] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1863
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:54:04.264] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15529
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:56:31.397] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 31
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:56:31.523] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 18
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:56:31.549] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 48
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:56:33.544] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1839
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:56:46.902] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15394
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:17)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:10.874] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 38
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:11.026] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 19
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:11.064] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 61
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:12.980] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1811
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:26.139] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15130
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:64:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:53.718] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 36
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:53.948] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 16
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:53.996] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 80
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:57:55.725] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1628
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T12:58:08.943] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15007
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T13:00:16.583] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 38
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:00:16.752] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 21
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:00:16.776] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 53
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2018-12-19T13:00:19.097] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 2222
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:00:32.047] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15314
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:3)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:01:04.500] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 59
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:01:04.705] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 17
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:01:04.748] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 62
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:01:06.816] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1934
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:01:19.492] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 14803
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:02:15.085] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 35
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:02:15.317] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 20
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:02:15.368] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 70
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:02:17.228] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1745
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:02:29.037] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 13733
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:01.988] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 35
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:02.417] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 18
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:02.446] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 51
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:04.563] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1949
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:17.165] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 14764
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:65:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:10:30)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:24.215] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 39
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:24.402] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 18
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:24.442] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 58
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:26.365] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1784
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:39.111] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 14723
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:50.675] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 36
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:50.827] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 16
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:50.894] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 85
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:03:52.901] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1849
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:04:07.342] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 16528
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:09:21.208] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 92
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:09:21.823] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:09:22.298] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 26
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:09:22.327] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 58
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:09:24.279] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1802
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:09:36.828] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 14555
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:10:44.041] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 73
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:10:44.173] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 13
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:10:44.205] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 44
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2018-12-19T13:10:45.814] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1500
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:11:04.358] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 45
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:11:04.727] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:11:04.847] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 159
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:11:06.620] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1649
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:11:19.166] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 14505
+err name: TypeError
+err message: Cannot read property 'statusCode' of undefined
+err stack: TypeError: Cannot read property 'statusCode' of undefined
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:63:44)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:13:21.676] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 40
+err name: TypeError
+err message: Cannot read property 'x-forwarded-for' of undefined
+err stack: TypeError: Cannot read property 'x-forwarded-for' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:23:23)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:28:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:60:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:13:22.016] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 30
+err name: TypeError
+err message: Cannot read property 'x-forwarded-for' of undefined
+err stack: TypeError: Cannot read property 'x-forwarded-for' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:23:23)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:28:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:60:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:13:22.086] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 118
+err name: TypeError
+err message: Cannot read property 'x-forwarded-for' of undefined
+err stack: TypeError: Cannot read property 'x-forwarded-for' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:23:23)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:28:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:60:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:13:24.432] [ERROR] errorLog - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  undefined
+request client ip:  null
+request body: 
+undefined
+response time: 1913
+err name: TypeError
+err message: Cannot read property 'x-forwarded-for' of undefined
+err stack: TypeError: Cannot read property 'x-forwarded-for' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:23:23)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:28:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:60:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T13:13:37.480] [ERROR] errorLog - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  undefined
+request client ip:  null
+request query:  undefined
+response time: 15534
+err name: TypeError
+err message: Cannot read property 'x-forwarded-for' of undefined
+err stack: TypeError: Cannot read property 'x-forwarded-for' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:23:23)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:28:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:60:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:9:28)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:76:13)
+*************** error log end ***************
+
+[2018-12-19T14:09:38.535] [ERROR] errorLog - 
+*************** error log start ***************
+method: GET
+originalUrl:  /api/v1/project/list?webMonitorId=mcl_webmonitor
+client ip:  ::1
+query:  undefined
+response time: 40
+err name: TypeError
+err message: Cannot read property 'remoteAddress' of undefined
+err stack: TypeError: Cannot read property 'remoteAddress' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:21:22)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:25:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:59:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:15)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T14:09:38.683] [ERROR] errorLog - 
+*************** error log start ***************
+method: GET
+originalUrl:  /api/v1/ignoreErrorByApplication?webMonitorId=mcl_webmonitor
+client ip:  ::1
+query:  undefined
+response time: 23
+err name: TypeError
+err message: Cannot read property 'remoteAddress' of undefined
+err stack: TypeError: Cannot read property 'remoteAddress' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:21:22)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:25:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:59:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:15)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T14:09:38.725] [ERROR] errorLog - 
+*************** error log start ***************
+method: GET
+originalUrl:  /api/v1/getJavascriptErrorInfoListByDay?timeType=month&webMonitorId=mcl_webmonitor
+client ip:  ::1
+query:  undefined
+response time: 68
+err name: TypeError
+err message: Cannot read property 'remoteAddress' of undefined
+err stack: TypeError: Cannot read property 'remoteAddress' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:21:22)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:25:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:59:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:15)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T14:09:41.175] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/getJavascriptErrorSort
+client ip:  ::1
+body: 
+undefined
+response time: 2296
+err name: TypeError
+err message: Cannot read property 'remoteAddress' of undefined
+err stack: TypeError: Cannot read property 'remoteAddress' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:21:22)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:25:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:59:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:15)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
+[2018-12-19T14:09:58.121] [ERROR] errorLog - 
+*************** error log start ***************
+method: GET
+originalUrl:  /api/v1/getJavascriptErrorCountByOs?day=1&webMonitorId=mcl_webmonitor
+client ip:  ::1
+query:  undefined
+response time: 19461
+err name: TypeError
+err message: Cannot read property 'remoteAddress' of undefined
+err stack: TypeError: Cannot read property 'remoteAddress' of undefined
+    at getClientIp (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:21:22)
+    at formatReqLog (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:25:12)
+    at formatRes (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:59:14)
+    at Object.log.info (/Users/jeffery/MonitorProjects/webfunny_servers/config/log.js:8:15)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:75:13)
+*************** error log end ***************
+
