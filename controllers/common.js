@@ -46,7 +46,7 @@ class Common {
       try {
         logInfo = JSON.parse("\"" + logArray[i] + "\"");
       } catch (error) {
-        log.error(ctx, error, 0);
+        log.errorDetail(logArray[i], error);
       }
       if (!logInfo) continue;
       if (typeof logInfo === "string") {

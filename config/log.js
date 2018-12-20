@@ -14,6 +14,19 @@ log.error = function(ctx, error, resTime) {
   }
 };
 
+log.errorDetail = function(param, err) {
+  if (param && error) {
+    var logText = "param: " + param + "\n";
+    //错误名称
+    logText += "err name: " + err.name + "\n";
+    //错误信息
+    logText += "err message: " + err.message + "\n";
+    //错误详情
+    logText += "err stack: " + err.stack + "\n";
+    errorLog.error(logText);
+  }
+};
+
 //格式化请求日志
 var formatReqLog = function(ctx, resTime) {
   var req = ctx.req
