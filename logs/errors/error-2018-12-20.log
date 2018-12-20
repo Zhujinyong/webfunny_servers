@@ -1,0 +1,159 @@
+[2018-12-20T12:55:40.590] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/uploadLog
+client ip:  ::1
+body: 
+{"data":"{\"logInfo\":\"{\\\"happenTime\\\":1545281734549,\\\"webMonitorId\\\":\\\"mcl_webmonitor\\\",\\\"simpleUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"completeUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"customerKey\\\":\\\"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508\\\",\\\"pageKey\\\":\\\"6422b0cf-1b57-467b-b99a-fdd5d9b08849\\\",\\\"deviceName\\\":\\\"PC\\\",\\\"os\\\":\\\"web\\\",\\\"browserName\\\":\\\"chrome\\\",\\\"browserVersion\\\":\\\"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36\\\",\\\"monitorIp\\\":\\\"\\\",\\\"country\\\":\\\"china\\\",\\\"province\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"userId\\\":\\\"\\\",\\\"firstUserParam\\\":\\\"\\\",\\\"secondUserParam\\\":\\\"\\\",\\\"uploadType\\\":\\\"CUSTOMER_PV\\\",\\\"loadType\\\":\\\"none\\\",\\\"loadTime\\\":0}$$$\"}"}
+response time: 0
+err name: SyntaxError
+err message: Unexpected token \ in JSON at position 1
+err stack: SyntaxError: Unexpected token \ in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at uploadLog (/Users/jeffery/MonitorProjects/webfunny_servers/controllers/common.js:47:24)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:351:31)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:71:15)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at views (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-views/lib/index.js:61:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at serve (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-static/index.js:47:14)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at filter (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-json/index.js:25:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at parseBody.then.body (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-bodyparser/index.js:74:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2018-12-20T12:56:17.801] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/uploadLog
+client ip:  ::1
+body: 
+{"data":"{\"logInfo\":\"{\\\"happenTime\\\":1545281771964,\\\"webMonitorId\\\":\\\"mcl_webmonitor\\\",\\\"simpleUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"completeUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"customerKey\\\":\\\"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508\\\",\\\"pageKey\\\":\\\"94587614-e0e2-4fb5-8d1c-a1da5175b2b4\\\",\\\"deviceName\\\":\\\"PC\\\",\\\"os\\\":\\\"web\\\",\\\"browserName\\\":\\\"chrome\\\",\\\"browserVersion\\\":\\\"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36\\\",\\\"monitorIp\\\":\\\"\\\",\\\"country\\\":\\\"china\\\",\\\"province\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"userId\\\":\\\"\\\",\\\"firstUserParam\\\":\\\"\\\",\\\"secondUserParam\\\":\\\"\\\",\\\"uploadType\\\":\\\"CUSTOMER_PV\\\",\\\"loadType\\\":\\\"none\\\",\\\"loadTime\\\":0}$$$\"}"}
+response time: 0
+err name: SyntaxError
+err message: Unexpected token \ in JSON at position 1
+err stack: SyntaxError: Unexpected token \ in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at uploadLog (/Users/jeffery/MonitorProjects/webfunny_servers/controllers/common.js:47:24)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:351:31)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:71:15)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at views (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-views/lib/index.js:61:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at serve (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-static/index.js:47:14)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at filter (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-json/index.js:25:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at parseBody.then.body (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-bodyparser/index.js:74:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2018-12-20T12:57:07.495] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/uploadLog
+client ip:  ::1
+body: 
+{"data":"{\"logInfo\":\"{\\\"happenTime\\\":1545281821448,\\\"webMonitorId\\\":\\\"mcl_webmonitor\\\",\\\"simpleUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"completeUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"customerKey\\\":\\\"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508\\\",\\\"pageKey\\\":\\\"ea89f2b5-9f8b-498e-95ba-f9084a04873c\\\",\\\"deviceName\\\":\\\"PC\\\",\\\"os\\\":\\\"web\\\",\\\"browserName\\\":\\\"chrome\\\",\\\"browserVersion\\\":\\\"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36\\\",\\\"monitorIp\\\":\\\"\\\",\\\"country\\\":\\\"china\\\",\\\"province\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"userId\\\":\\\"\\\",\\\"firstUserParam\\\":\\\"\\\",\\\"secondUserParam\\\":\\\"\\\",\\\"uploadType\\\":\\\"CUSTOMER_PV\\\",\\\"loadType\\\":\\\"none\\\",\\\"loadTime\\\":0}$$$\"}"}
+response time: 0
+err name: SyntaxError
+err message: Unexpected token \ in JSON at position 1
+err stack: SyntaxError: Unexpected token \ in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at uploadLog (/Users/jeffery/MonitorProjects/webfunny_servers/controllers/common.js:48:24)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:351:31)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:71:15)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at views (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-views/lib/index.js:61:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at serve (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-static/index.js:47:14)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at filter (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-json/index.js:25:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at parseBody.then.body (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-bodyparser/index.js:74:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2018-12-20T12:58:02.034] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/uploadLog
+client ip:  ::1
+body: 
+{"data":"{\"logInfo\":\"{\\\"happenTime\\\":1545281875180,\\\"webMonitorId\\\":\\\"mcl_webmonitor\\\",\\\"simpleUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"completeUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"customerKey\\\":\\\"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508\\\",\\\"pageKey\\\":\\\"927916a4-7b57-446f-a8cc-2e2d9190d5f0\\\",\\\"deviceName\\\":\\\"PC\\\",\\\"os\\\":\\\"web\\\",\\\"browserName\\\":\\\"chrome\\\",\\\"browserVersion\\\":\\\"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36\\\",\\\"monitorIp\\\":\\\"\\\",\\\"country\\\":\\\"china\\\",\\\"province\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"userId\\\":\\\"\\\",\\\"firstUserParam\\\":\\\"\\\",\\\"secondUserParam\\\":\\\"\\\",\\\"uploadType\\\":\\\"CUSTOMER_PV\\\",\\\"loadType\\\":\\\"none\\\",\\\"loadTime\\\":0}$$$\"}"}
+response time: 0
+err name: SyntaxError
+err message: Unexpected token \ in JSON at position 1
+err stack: SyntaxError: Unexpected token \ in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at uploadLog (/Users/jeffery/MonitorProjects/webfunny_servers/controllers/common.js:48:24)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:351:31)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:71:15)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at views (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-views/lib/index.js:61:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at serve (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-static/index.js:47:14)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at filter (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-json/index.js:25:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at parseBody.then.body (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-bodyparser/index.js:74:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2018-12-20T13:09:02.450] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/uploadLog
+client ip:  ::1
+body: 
+{"data":"{\"logInfo\":\"{\\\"happenTime\\\":1545282536418,\\\"webMonitorId\\\":\\\"mcl_webmonitor\\\",\\\"simpleUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"completeUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"customerKey\\\":\\\"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508\\\",\\\"pageKey\\\":\\\"e2b9b2cf-9a77-44fd-9453-279aa5a818b6\\\",\\\"deviceName\\\":\\\"PC\\\",\\\"os\\\":\\\"web\\\",\\\"browserName\\\":\\\"chrome\\\",\\\"browserVersion\\\":\\\"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36\\\",\\\"monitorIp\\\":\\\"\\\",\\\"country\\\":\\\"china\\\",\\\"province\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"userId\\\":\\\"\\\",\\\"firstUserParam\\\":\\\"\\\",\\\"secondUserParam\\\":\\\"\\\",\\\"uploadType\\\":\\\"CUSTOMER_PV\\\",\\\"loadType\\\":\\\"none\\\",\\\"loadTime\\\":0}$$$\"}"}
+response time: 0
+err name: TypeError
+err message: Cannot create property 'monitorIp' on string '{"happenTime":1545282536418,"webMonitorId":"mcl_webmonitor","simpleUrl":"http://localhost:9090/ltvfe/cl/withdrawals","completeUrl":"http://localhost:9090/ltvfe/cl/withdrawals","customerKey":"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508","pageKey":"e2b9b2cf-9a77-44fd-9453-279aa5a818b6","deviceName":"PC","os":"web","browserName":"chrome","browserVersion":"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36","monitorIp":"","country":"china","province":"","city":"","userId":"","firstUserParam":"","secondUserParam":"","uploadType":"CUSTOMER_PV","loadType":"none","loadTime":0}'
+err stack: TypeError: Cannot create property 'monitorIp' on string '{"happenTime":1545282536418,"webMonitorId":"mcl_webmonitor","simpleUrl":"http://localhost:9090/ltvfe/cl/withdrawals","completeUrl":"http://localhost:9090/ltvfe/cl/withdrawals","customerKey":"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508","pageKey":"e2b9b2cf-9a77-44fd-9453-279aa5a818b6","deviceName":"PC","os":"web","browserName":"chrome","browserVersion":"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36","monitorIp":"","country":"china","province":"","city":"","userId":"","firstUserParam":"","secondUserParam":"","uploadType":"CUSTOMER_PV","loadType":"none","loadTime":0}'
+    at uploadLog (/Users/jeffery/MonitorProjects/webfunny_servers/controllers/common.js:54:25)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:351:31)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:71:15)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at views (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-views/lib/index.js:61:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at serve (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-static/index.js:47:14)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at filter (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-json/index.js:25:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at parseBody.then.body (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-bodyparser/index.js:74:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+

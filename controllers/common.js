@@ -6,6 +6,7 @@ const IgnoreErrorModel = require('../modules/ignoreError')
 const statusCode = require('../util/status-code')
 const fetch = require('node-fetch')
 const Utils = require('../util/utils');
+const log = require("../config/log");
 class Common {
   /**
    * 接受并分类处理上传的日志
@@ -35,12 +36,19 @@ class Common {
     //       city = "未知";
     //     }
     //   });
-    const logInfoStr = ctx.request.body.data.replace(/\\": Script/g, '"')
-    const param = JSON.parse(logInfoStr)
-    const logArray = param.logInfo.split("$$$")
+    const logInfoStr = ctx.request.body.data
+    const len = logInfoStr.length
+    const paramStr = logInfoStr.substring(12, len - 2)
+    const logArray = paramStr.split("$$$")
     for(var i = 0; i < logArray.length; i ++) {
       if (!logArray[i]) continue;
-      const logInfo = JSON.parse(logArray[i]);
+      let logInfo = null;
+      try {
+        logInfo = JSON.parse('\"' +logArray[i] + '\"');
+      } catch (error) {
+        log.error(ctx, error, 0);
+      }
+      if (!logInfo) continue;
       logInfo.monitorIp = clientIpString
       logInfo.province = province
       logInfo.city = city
