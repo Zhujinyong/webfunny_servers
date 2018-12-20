@@ -42,12 +42,14 @@ class Common {
     const logArray = paramStr.split("$$$")
     for(var i = 0; i < logArray.length; i ++) {
       if (!logArray[i]) continue;
+      console.log(logArray[i])
       let logInfo = null;
       try {
-        logInfo = JSON.parse(logArray[i]);
+        logInfo = JSON.parse("\"" + logArray[i] + "\"");
       } catch (error) {
         log.error(ctx, error, 0);
       }
+      console.log(logInfo)
       if (!logInfo) continue;
       logInfo.monitorIp = clientIpString
       logInfo.province = province
