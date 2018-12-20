@@ -443,3 +443,35 @@ err stack: TypeError: Cannot create property 'monitorIp' on string '{"happenTime
     at process._tickCallback (internal/process/next_tick.js:68:7)
 *************** error log end ***************
 
+[2018-12-20T14:57:03.431] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/uploadLog
+client ip:  ::1
+body: 
+{"data":"{\"logInfo\":\"{\\\"happenTime\\\":1545289018612,\\\"webMonitorId\\\":\\\"mcl_webmonitor\\\",\\\"simpleUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"completeUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"customerKey\\\":\\\"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508\\\",\\\"pageKey\\\":\\\"a9fe7846-130f-4e9e-82d3-0285e4739cf1\\\",\\\"deviceName\\\":\\\"PC\\\",\\\"os\\\":\\\"web\\\",\\\"browserName\\\":\\\"chrome\\\",\\\"browserVersion\\\":\\\"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36\\\",\\\"monitorIp\\\":\\\"\\\",\\\"country\\\":\\\"china\\\",\\\"province\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"userId\\\":\\\"\\\",\\\"firstUserParam\\\":\\\"\\\",\\\"secondUserParam\\\":\\\"\\\",\\\"uploadType\\\":\\\"JS_ERROR\\\",\\\"errorMessage\\\":\\\"ReferenceError: b is not defined\\\",\\\"errorStack\\\":\\\"ReferenceError: b is not defined\\\\n    at Withdrawals.componentDidMount (http://localhost:9090/withdrawals.2d4400e3.chunk.js:1406:7)\\\\n    at Withdrawals.proxiedComponentDidMount (http://localhost:9090/app.ca500f9c.js:60582:40)\\\\n    at http://localhost:9090/app.ca500f9c.js:52308:25\\\\n    at measureLifeCyclePerf (http://localhost:9090/app.ca500f9c.js:52119:12)\\\\n    at http://localhost:9090/app.ca500f9c.js:52307:11\\\\n    at CallbackQueue.notifyAll (http://localhost:9090/app.ca500f9c.js:20977:22)\\\\n    at ReactReconcileTransaction.close (http://localhost:9090/app.ca500f9c.js:57149:26)\\\\n    at ReactReconcileTransaction.closeAll (http://localhost:9090/app.ca500f9c.js:9470:25)\\\\n    at ReactReconcileTransaction.perform (http://localhost:9090/app.ca500f9c.js:9417:16)\\\\n    at ReactUpdatesFlushTransaction.perform (http://localhost:9090/app.ca500f9c.js:9404:20)\\\",\\\"browserInfo\\\":\\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36\\\"}$$${\\\"happenTime\\\":1545289017778,\\\"webMonitorId\\\":\\\"mcl_webmonitor\\\",\\\"simpleUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"completeUrl\\\":\\\"http://localhost:9090/ltvfe/cl/withdrawals\\\",\\\"customerKey\\\":\\\"b9b715fb-2bdc-48c7-8e2a-5e352e1d3508\\\",\\\"pageKey\\\":\\\"a9fe7846-130f-4e9e-82d3-0285e4739cf1\\\",\\\"deviceName\\\":\\\"PC\\\",\\\"os\\\":\\\"web\\\",\\\"browserName\\\":\\\"chrome\\\",\\\"browserVersion\\\":\\\"mozilla/5.0 (macintosh; intel mac os x 10_13_4) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.110 safari/537.36\\\",\\\"monitorIp\\\":\\\"\\\",\\\"country\\\":\\\"china\\\",\\\"province\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"userId\\\":\\\"\\\",\\\"firstUserParam\\\":\\\"\\\",\\\"secondUserParam\\\":\\\"\\\",\\\"uploadType\\\":\\\"CUSTOMER_PV\\\",\\\"loadType\\\":\\\"none\\\",\\\"loadTime\\\":0}$$$\"}"}
+response time: 0
+err name: SyntaxError
+err message: Unexpected number in JSON at position 1
+err stack: SyntaxError: Unexpected number in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at uploadLog (/Users/jeffery/MonitorProjects/webfunny_servers/controllers/common.js:58:24)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-router/lib/router.js:351:31)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at app.use (/Users/jeffery/MonitorProjects/webfunny_servers/app.js:71:15)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at views (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-views/lib/index.js:61:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at serve (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-static/index.js:47:14)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at filter (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-json/index.js:25:12)
+    at dispatch (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-compose/index.js:42:32)
+    at parseBody.then.body (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/koa-bodyparser/index.js:74:14)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+

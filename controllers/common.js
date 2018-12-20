@@ -47,12 +47,11 @@ class Common {
       try {
         logStr = ("\"" + logArray[i] + "\"")
           .replace('": ', '')
-          .replace('\\"', ' ')
+          .replace('\\\\"', '-')
         logInfo = JSON.parse(logStr);
       } catch (error) {
         log.errorDetail(logStr, error);
       }
-      console.log(logInfo)
       if (!logInfo) continue;
       if (typeof logInfo === "string") {
         logInfo = JSON.parse(logInfo)
