@@ -47,7 +47,7 @@ class Common {
       try {
         logStr = ("\"" + logArray[i] + "\"")
           .replace('": ', '')
-          .replace('\\": ', ' ')
+          .replace('\\"', ' ')
         logInfo = JSON.parse(logStr);
       } catch (error) {
         log.errorDetail(logStr, error);
