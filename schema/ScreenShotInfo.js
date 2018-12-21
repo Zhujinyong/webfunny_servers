@@ -9,15 +9,15 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       autoIncrement: true,
     },
-    // JS报错信息
-    errorMessage: {
+    // 描述信息
+    description: {
       type: DataTypes.TEXT,
       allowNull: true,
-      field: 'errorMessage'
+      field: 'description'
     },
-    // JS报错时候的截屏信息
+    // 截屏信息
     screenInfo: {
-      type: DataTypes.TEXT,
+      type: DataTypes.BLOB,
       allowNull: true,
       field: 'screenInfo'
     }

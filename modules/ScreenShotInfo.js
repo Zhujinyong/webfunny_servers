@@ -68,6 +68,14 @@ class ScreenShotInfoModel {
     return true
   }
 
+  /**
+   * 获取当前用户所有的行为记录
+   * @returns {Promise<*>}
+   */
+  static async getBehaviorsByUser(param, customerKeySql) {
+    let sql = "select * from ScreenShotInfos where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' "
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
 }
 
 module.exports = ScreenShotInfoModel

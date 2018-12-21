@@ -3,6 +3,7 @@ const JavascriptErrorInfoModel = require('../modules/javascriptErrorInfo')
 const ScreenShotInfo = require('../modules/ScreenShotInfo')
 const CustomerPVModel = require('../modules/customerPV')
 const IgnoreErrorModel = require('../modules/ignoreError')
+const ScreenShotInfoModel = require('../modules/ScreenShotInfo')
 const statusCode = require('../util/status-code')
 const fetch = require('node-fetch')
 const Utils = require('../util/utils');
@@ -36,37 +37,14 @@ class Common {
     //       city = "未知";
     //     }
     //   });
-    const logInfoStr = ctx.request.body.data
-    const len = logInfoStr.length
-    const paramStr = logInfoStr.substring(12, len - 2)
-    const logArray = paramStr.split("$$$")
+    const param = JSON.parse(ctx.request.body.data)
+    const logArray = param.logInfo.split("$$$")
     for(var i = 0; i < logArray.length; i ++) {
       if (!logArray[i]) continue;
-      let logInfo = null;
-      let logStr = ""
-      try {
-        logStr = ("\"" + logArray[i] + "\"")
-          .replace('": ', '')
-          .replace('\\\\"', '\\"-\\"')
-        logInfo = JSON.parse(logStr);
-      } catch (error) {
-        log.errorDetail(logStr, error);
-      }
-      if (!logInfo) continue;
-
-      if (typeof logInfo === "string") {
-        let logInfoTemp = logInfo
-        try {
-          logInfo = JSON.parse(logInfoTemp);
-        } catch (error) {
-          log.errorDetail(logInfoTemp, error);
-        }
-      }
-
+      const logInfo = JSON.parse(logArray[i]);
       logInfo.monitorIp = clientIpString
       logInfo.province = province
       logInfo.city = city
-      logInfo.firstUserParam = ""
       switch (logInfo.uploadType) {
         case "ELE_BEHAVIOR":
           await BehaviorInfoModel.createBehaviorInfo(logInfo);
@@ -104,6 +82,7 @@ class Common {
     let result1 = []
     let result2 = []
     let result3 = []
+    let result4 = []
     let result = []
     // 查询当前用户的customerKey列表
     await CustomerPVModel.getCustomerKeyByUserId(param).then((res) => {
@@ -133,6 +112,9 @@ class Common {
     })
     await JavascriptErrorInfoModel.getBehaviorsByUser(param, customerKeySql).then((res) => {
       result3 = res
+    })
+    await ScreenShotInfoModel.getBehaviorsByUser(param, customerKeySql).then((res) => {
+      result4 = res
     })
     // 整合所有的结果
     result1.forEach((item) => {
@@ -196,6 +178,29 @@ class Common {
       obj.deviceName = item.deviceName
       obj.os = item.os
       obj.monitorIp = item.monitorIp
+      result.push(obj)
+    })
+    result4.forEach((item) => {
+      let obj = {}
+      obj.userId = item.userId
+      obj.firstUserParam = item.firstUserParam
+      obj.secondUserParam = item.secondUserParam
+      obj.uploadType = item.uploadType
+      obj.behaviorType = item.behaviorType
+      obj.simpleUrl = item.simpleUrl
+      obj.completeUrl = item.completeUrl
+      obj.happenTime = item.happenTime
+      obj.createdAt = item.createdAt
+      obj.tagName = item.tagName
+      obj.innerText = item.innerText
+      obj.className = item.className
+      obj.errorMessage = item.errorMessage
+      obj.city = item.city
+      obj.deviceName = item.deviceName
+      obj.os = item.os
+      obj.monitorIp = item.monitorIp
+      obj.screenInfo = item.screenInfo.toString()
+      obj.description = item.description
       result.push(obj)
     })
     ctx.response.status = 200;
