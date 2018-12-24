@@ -38,40 +38,47 @@ class Common {
     //       city = "未知";
     //     }
     //   });
-    const param = JSON.parse(ctx.request.body.data)
-    const logArray = param.logInfo.split("$$$")
-    for(var i = 0; i < logArray.length; i ++) {
-      if (!logArray[i]) continue;
-      const logInfo = JSON.parse(logArray[i]);
-      logInfo.monitorIp = clientIpString
-      logInfo.province = province
-      logInfo.city = city
-      switch (logInfo.uploadType) {
-        case "ELE_BEHAVIOR":
-          await BehaviorInfoModel.createBehaviorInfo(logInfo);
-          break;
-        case "JS_ERROR":
-          const arr = await IgnoreErrorModel.getIgnoreErrorByMsg(logInfo);
-          const count = arr[0].count
-          if (count <= 0) {
-            await JavascriptErrorInfoModel.createJavascriptErrorInfo(logInfo);
-          }
-          break;
-        case "HTTP_LOG":
-          await HttpLogInfoModel.createHttpLogInfo(logInfo);
-          break;
-        case "SCREEN_SHOT":
-          await ScreenShotInfo.createScreenShotInfo(logInfo);
-          break;
-        case "CUSTOMER_PV":
-          await CustomerPVModel.createCustomerPV(logInfo);
-          break;
-        default:
-          break;
+    // 暂时先把线上的日志记录过滤掉
+    const paramStr = ctx.request.body.data
+    if (paramStr.indexOf("-qa") || paramStr.indexOf("-staging")) {
+      const param = JSON.parse(ctx.request.body.data)
+      const logArray = param.logInfo.split("$$$")
+      for(var i = 0; i < logArray.length; i ++) {
+        if (!logArray[i]) continue;
+        const logInfo = JSON.parse(logArray[i]);
+        logInfo.monitorIp = clientIpString
+        logInfo.province = province
+        logInfo.city = city
+        switch (logInfo.uploadType) {
+          case "ELE_BEHAVIOR":
+            await BehaviorInfoModel.createBehaviorInfo(logInfo);
+            break;
+          case "JS_ERROR":
+            const arr = await IgnoreErrorModel.getIgnoreErrorByMsg(logInfo);
+            const count = arr[0].count
+            if (count <= 0) {
+              await JavascriptErrorInfoModel.createJavascriptErrorInfo(logInfo);
+            }
+            break;
+          case "HTTP_LOG":
+            await HttpLogInfoModel.createHttpLogInfo(logInfo);
+            break;
+          case "SCREEN_SHOT":
+            await ScreenShotInfo.createScreenShotInfo(logInfo);
+            break;
+          case "CUSTOMER_PV":
+            await CustomerPVModel.createCustomerPV(logInfo);
+            break;
+          default:
+            break;
+        }
       }
+      ctx.response.status = 200;
+      ctx.body = statusCode.SUCCESS_200('创建信息成功')
+    } else {
+      ctx.response.status = 200;
+      ctx.body = statusCode.SUCCESS_200('创建信息成功')
     }
-    ctx.response.status = 200;
-    ctx.body = statusCode.SUCCESS_200('创建信息成功')
   }
 
   /**
