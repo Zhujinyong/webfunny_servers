@@ -4,6 +4,7 @@ const ScreenShotInfo = require('../modules/ScreenShotInfo')
 const CustomerPVModel = require('../modules/customerPV')
 const IgnoreErrorModel = require('../modules/ignoreError')
 const ScreenShotInfoModel = require('../modules/ScreenShotInfo')
+const HttpLogInfoModel = require('../modules/HttpLogInfo')
 const statusCode = require('../util/status-code')
 const fetch = require('node-fetch')
 const Utils = require('../util/utils');
@@ -56,8 +57,11 @@ class Common {
             await JavascriptErrorInfoModel.createJavascriptErrorInfo(logInfo);
           }
           break;
+        case "HTTP_LOG":
+          await HttpLogInfoModel.createHttpLogInfo(logInfo);
+          break;
         case "SCREEN_SHOT":
-          await ScreenShotInfo.createScreenShotInfo(logInfo)
+          await ScreenShotInfo.createScreenShotInfo(logInfo);
           break;
         case "CUSTOMER_PV":
           await CustomerPVModel.createCustomerPV(logInfo);
@@ -83,6 +87,7 @@ class Common {
     let result2 = []
     let result3 = []
     let result4 = []
+    let result5 = []
     let result = []
     // 查询当前用户的customerKey列表
     await CustomerPVModel.getCustomerKeyByUserId(param).then((res) => {
@@ -116,92 +121,14 @@ class Common {
     await ScreenShotInfoModel.getBehaviorsByUser(param, customerKeySql).then((res) => {
       result4 = res
     })
-    // 整合所有的结果
-    result1.forEach((item) => {
-      let obj = {}
-      obj.userId = item.userId
-      obj.firstUserParam = item.firstUserParam
-      obj.secondUserParam = item.secondUserParam
-      obj.uploadType = item.uploadType
-      obj.behaviorType = item.behaviorType
-      obj.simpleUrl = item.simpleUrl
-      obj.completeUrl = item.completeUrl
-      obj.happenTime = item.happenTime
-      obj.createdAt = item.createdAt
-      obj.tagName = item.tagName
-      obj.innerText = item.innerText
-      obj.className = item.className
-      obj.errorMessage = item.errorMessage
-      obj.city = item.city
-      obj.deviceName = item.deviceName
-      obj.os = item.os
-      obj.monitorIp = item.monitorIp
-      result.push(obj)
+    await HttpLogInfoModel.getHttpLogsByUser(param, customerKeySql).then((res) => {
+      result5 = res
     })
-    result2.forEach((item) => {
-      let obj = {}
-      obj.userId = item.userId
-      obj.firstUserParam = item.firstUserParam
-      obj.secondUserParam = item.secondUserParam
-      obj.uploadType = item.uploadType
-      obj.behaviorType = item.behaviorType
-      obj.simpleUrl = item.simpleUrl
-      obj.completeUrl = item.completeUrl
-      obj.happenTime = item.happenTime
-      obj.createdAt = item.createdAt
-      obj.tagName = item.tagName
-      obj.innerText = item.innerText
-      obj.className = item.className
-      obj.errorMessage = item.errorMessage
-      obj.city = item.city
-      obj.deviceName = item.deviceName
-      obj.os = item.os
-      obj.monitorIp = item.monitorIp
-      result.push(obj)
-    })
-    result3.forEach((item) => {
-      let obj = {}
-      obj.userId = item.userId
-      obj.firstUserParam = item.firstUserParam
-      obj.secondUserParam = item.secondUserParam
-      obj.uploadType = item.uploadType
-      obj.behaviorType = item.behaviorType
-      obj.simpleUrl = item.simpleUrl
-      obj.completeUrl = item.completeUrl
-      obj.happenTime = item.happenTime
-      obj.createdAt = item.createdAt
-      obj.tagName = item.tagName
-      obj.innerText = item.innerText
-      obj.className = item.className
-      obj.errorMessage = item.errorMessage
-      obj.city = item.city
-      obj.deviceName = item.deviceName
-      obj.os = item.os
-      obj.monitorIp = item.monitorIp
-      result.push(obj)
-    })
+
+    result = result.concat(result1, result2, result3, result5)
     result4.forEach((item) => {
-      let obj = {}
-      obj.userId = item.userId
-      obj.firstUserParam = item.firstUserParam
-      obj.secondUserParam = item.secondUserParam
-      obj.uploadType = item.uploadType
-      obj.behaviorType = item.behaviorType
-      obj.simpleUrl = item.simpleUrl
-      obj.completeUrl = item.completeUrl
-      obj.happenTime = item.happenTime
-      obj.createdAt = item.createdAt
-      obj.tagName = item.tagName
-      obj.innerText = item.innerText
-      obj.className = item.className
-      obj.errorMessage = item.errorMessage
-      obj.city = item.city
-      obj.deviceName = item.deviceName
-      obj.os = item.os
-      obj.monitorIp = item.monitorIp
-      obj.screenInfo = item.screenInfo.toString()
-      obj.description = item.description
-      result.push(obj)
+      item.screenInfo = (item.screenInfo || "").toString()
+      result.push(item)
     })
     ctx.response.status = 200;
     ctx.body = statusCode.SUCCESS_200('创建信息成功', result)
