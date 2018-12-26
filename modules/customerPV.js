@@ -124,13 +124,8 @@ class CustomerPVModel {
    * @returns {Promise<*>}
    */
   static async getCustomerKeyByUserId(param) {
-    var phoneReg = /^1\d{10}$/
-    var sql = ""
-    if (phoneReg.test(param.searchValue)) {
-      sql = "select DISTINCT(customerKey) from CustomerPVs where happenTime>" + param.happenTimeScope + " and webMonitorId='" + param.webMonitorId + "' and firstUserParam='" + param.searchValue + "'"
-    } else {
-      sql = "select DISTINCT(customerKey) from CustomerPVs where happenTime>" + param.happenTimeScope + " and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
-    }
+    console.log(Utils.b64DecodeUnicode(param.searchValue))
+    const sql = "select DISTINCT(customerKey) from CustomerPVs where createdAt>" + param.happenTimeScope + " and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 

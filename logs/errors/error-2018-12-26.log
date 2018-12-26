@@ -1,0 +1,50 @@
+[2018-12-26T15:06:10.165] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/searchUserBehaviors
+client ip:  ::1
+body: 
+{"searchValue":"MDNEMjM1MEEtQzM4RS1FNzExLThDMDUtNDhENTM5QjkwN0Q0","webMonitorId":"mcl_webmonitor","timeScope":1}
+response time: 0
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 and webMonitorId='mcl_webmonitor' and userId='MDNEMjM1MEEtQzM4RS1FNzExL' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 and webMonitorId='mcl_webmonitor' and userId='MDNEMjM1MEEtQzM4RS1FNzExL' at line 1
+    at Query.formatError (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.Command.execute (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/connection.js:502:28)
+    at PacketParser.onPacket (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/connection.js:81:16)
+    at PacketParser.executeStart (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/connection.js:89:29)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at TCP.onread (net.js:638:20)
+*************** error log end ***************
+
+[2018-12-26T15:06:34.440] [ERROR] errorLog - 
+*************** error log start ***************
+method: POST
+originalUrl:  /api/v1/searchUserBehaviors
+client ip:  ::1
+body: 
+{"searchValue":"MDNEMjM1MEEtQzM4RS1FNzExLThDMDUtNDhENTM5QjkwN0Q0","webMonitorId":"mcl_webmonitor","timeScope":1}
+response time: 0
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 and webMonitorId='mcl_webmonitor' and userId='MDNEMjM1MEEtQzM4RS1FNzExL' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 and webMonitorId='mcl_webmonitor' and userId='MDNEMjM1MEEtQzM4RS1FNzExL' at line 1
+    at Query.formatError (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.Command.execute (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/connection.js:502:28)
+    at PacketParser.onPacket (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/connection.js:81:16)
+    at PacketParser.executeStart (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/jeffery/MonitorProjects/webfunny_servers/node_modules/mysql2/lib/connection.js:89:29)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at TCP.onread (net.js:638:20)
+*************** error log end ***************
+

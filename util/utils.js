@@ -1,4 +1,5 @@
 require("./extension")
+const myAtob = require("atob")
 module.exports = {
   isObject(obj) {
     return (Object.prototype.toString.call(obj) == '[object Object]');
@@ -92,7 +93,7 @@ module.exports = {
     }))
   },
   b64DecodeUnicode: function(str) {
-  return decodeURIComponent(atob(str).split('').map(function(c) {
+  return decodeURIComponent(myAtob(str).split('').map(function(c) {
     return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
   }).join(''));
 }

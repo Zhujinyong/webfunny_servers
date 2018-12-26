@@ -10,7 +10,7 @@ const cors = require('koa2-cors');
 const index = require('./routes/index')
 const secret = require('./config/secret')
 const err = require('./middlreware/error')
-const log = require("./config/log");
+const log = require("./config/log")
 // error handler
 onerror(app)
 

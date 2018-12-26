@@ -113,7 +113,8 @@ class Common {
       })
     } else {
       // 如果userId查不到，则用customerKey来进行查询
-      customerKeySql += "happenTime>" + param.happenTimeScope + " and customerKey='" + param.searchValue + "' "
+      const customerKey = Utils.b64DecodeUnicode(param.searchValue)
+      customerKeySql += "happenTime>" + param.happenTimeScope + " and customerKey='" + customerKey + "' "
     }
 
     await BehaviorInfoModel.getBehaviorsByUser(param, customerKeySql).then((res) => {
