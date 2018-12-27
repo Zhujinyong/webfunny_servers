@@ -13,7 +13,7 @@ const sequelize = new Sequelize('monitor_db', 'root', 'jeffery0712', {
   },
 
   pool: {
-    max: 5,
+    max: 500,
     min: 0,
     acquire: 30000,
     idle: 10000
