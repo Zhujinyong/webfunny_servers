@@ -1,6 +1,7 @@
 const db = require('../config/db')
 const Sequelize = db.sequelize;
 const HttpLogInfo = Sequelize.import('../schema/HttpLogInfo');
+const Utils = require('../util/utils');
 HttpLogInfo.sync({force: false});
 
 class HttpLogInfoModel {
@@ -77,6 +78,16 @@ class HttpLogInfoModel {
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
+  /**
+   * 删除
+   * @param id listID
+   * @returns {Promise.<boolean>}
+   */
+  static async deleteHttpLogInfoFifteenDaysAgo(days) {
+    const timeScope = Utils.addDays(0 - days) + " 00:00:00"
+    var querySql = "delete from HttpLogInfos where createdAt<'" + timeScope + "'"
+    return await Sequelize.query(querySql, { type: Sequelize.QueryTypes.DELETE})
+  }
 }
 
 module.exports = HttpLogInfoModel

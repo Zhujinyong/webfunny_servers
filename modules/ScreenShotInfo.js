@@ -1,6 +1,7 @@
 const db = require('../config/db')
 const Sequelize = db.sequelize;
 const ScreenShotInfo = Sequelize.import('../schema/ScreenShotInfo');
+const Utils = require('../util/utils');
 ScreenShotInfo.sync({force: false});
 
 class ScreenShotInfoModel {
@@ -75,6 +76,12 @@ class ScreenShotInfoModel {
   static async getBehaviorsByUser(param, customerKeySql) {
     let sql = "select * from ScreenShotInfos where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' "
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+
+  static async deleteScreenShotInfoFifteenDaysAgo(days) {
+    const timeScope = Utils.addDays(0 - days) + " 00:00:00"
+    var querySql = "delete from ScreenShotInfos where createdAt<'" + timeScope + "'"
+    return await Sequelize.query(querySql, { type: Sequelize.QueryTypes.DELETE})
   }
 }
 

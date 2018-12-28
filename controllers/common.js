@@ -149,16 +149,16 @@ class Common {
     // 每小时执行一次，如果是凌晨3 - 5点钟之间，则开始执行删除操作
     setInterval(() => {
       const hourStr = new Date().Format("hh");
-      if (hourStr === "2") {
-        // TODO 删除请求日志
-      } else if (hourStr === "3") {
+      if (hourStr === "02") {
+        HttpLogInfoModel.deleteHttpLogInfoFifteenDaysAgo(15)
+      } else if (hourStr === "03") {
         BehaviorInfoModel.deleteBehaviorInfoFifteenDaysAgo(15)
-      } else if (hourStr === "4") {
+      } else if (hourStr === "04") {
         JavascriptErrorInfoModel.deleteJavascriptErrorInfosFifteenDaysAgo(15)
-      } else if (hourStr === "5") {
+      } else if (hourStr === "05") {
         CustomerPVModel.deleteCustomerPVsFifteenDaysAgo(15)
-      } else if (hourStr === "6") {
-        // TODO 删除截屏信息
+      } else if (hourStr === "06") {
+        ScreenShotInfoModel.deleteScreenShotInfoFifteenDaysAgo(15)
       }
     }, 30 * 60 * 1000)
   }
