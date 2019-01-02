@@ -40,7 +40,8 @@ class Common {
     //   });
     // 暂时先把线上的日志记录过滤掉
     const paramStr = ctx.request.body.data
-    if (paramStr.indexOf("-qa") !== -1 || paramStr.indexOf("-staging") !== -1) {
+    // if (paramStr.indexOf("-qa") !== -1 || paramStr.indexOf("-staging") !== -1) {
+    if (true) {
       const param = JSON.parse(ctx.request.body.data)
       const logArray = param.logInfo.split("$$$")
       for(var i = 0; i < logArray.length; i ++) {

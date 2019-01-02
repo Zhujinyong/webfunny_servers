@@ -93,7 +93,7 @@ module.exports = (DataTypes) => {
     },
     // 自定义用户标识ID
     userId: {
-      type: DataTypes.STRING(36),
+      type: DataTypes.STRING(100),
       allowNull: true,
       field: 'userId'
     },
