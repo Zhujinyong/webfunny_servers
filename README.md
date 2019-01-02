@@ -4,7 +4,7 @@
     https://www.webfunny.cn/webfunny/javascriptError
     
 博客讲解：
-    https://www.cnblogs.com/warm-stranger/p/9417084.html
+    https://www.cnblogs.com/warm-stranger/p/10209990.html
     
 监控系统日志分析后台
 
