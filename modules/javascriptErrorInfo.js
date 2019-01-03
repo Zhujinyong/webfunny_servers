@@ -113,7 +113,7 @@ class JavascriptErrorInfoModel {
     }
     const queryStr = queryStr1 + queryStr2
     const errorMsg = tempErrorMsg.replace(/'/g, "\\'")
-    return await Sequelize.query("SELECT tab.os as os, count(tab.os) as count from (select SUBSTRING(os,1,3) as os from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " and  errorMessage='" + errorMsg + "') as tab GROUP BY os order by count desc", { type: Sequelize.QueryTypes.SELECT})
+    return await Sequelize.query("SELECT tab.os as os, count(tab.os) as count from (select SUBSTRING(os,1,3) as os from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " and  errorMessage like '%" + errorMsg + "%') as tab GROUP BY os order by count desc", { type: Sequelize.QueryTypes.SELECT})
   }
   /**
    * 根据errorMessage查询这一类错误最近发生的时间
@@ -121,7 +121,7 @@ class JavascriptErrorInfoModel {
    */
   static async getJavascriptErrorLatestTime(tempErrorMsg, param) {
     const errorMsg = tempErrorMsg.replace(/'/g, "\\'")
-    return await Sequelize.query("select createdAt, happenTime from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' and  errorMessage='" + errorMsg + "' ORDER BY createdAt desc limit 1", { type: Sequelize.QueryTypes.SELECT})
+    return await Sequelize.query("select createdAt, happenTime from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' and  errorMessage like '%" + errorMsg + "%' ORDER BY createdAt desc limit 1", { type: Sequelize.QueryTypes.SELECT})
   }
   /**
    * 获取JavascriptErrorInfo列表
@@ -138,7 +138,7 @@ class JavascriptErrorInfoModel {
    */
   static async getJavascriptErrorListByMsg(tempErrorMsg, param) {
     const errorMsg = tempErrorMsg.replace(/'/g, "\\'")
-    return await Sequelize.query("select * from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' and  errorMessage='" + errorMsg + "' order by happenTime desc limit 200", { type: Sequelize.QueryTypes.SELECT})
+    return await Sequelize.query("select * from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' and  errorMessage like '%" + errorMsg + "%' order by happenTime desc limit 200", { type: Sequelize.QueryTypes.SELECT})
   }
   /**
    * 根据errorMsg查询Js错误影响的用户数量
@@ -146,7 +146,7 @@ class JavascriptErrorInfoModel {
    */
   static async getJavascriptErrorAffectCount(tempErrorMsg, param) {
     const errorMsg = tempErrorMsg.replace(/'/g, "\\'")
-    return await Sequelize.query("select count(DISTINCT customerKey) as count from JavascriptErrorInfos where  webMonitorId='" + param.webMonitorId + "' and errorMessage = '" + errorMsg + "'", { type: Sequelize.QueryTypes.SELECT})
+    return await Sequelize.query("select count(DISTINCT customerKey) as count from JavascriptErrorInfos where  webMonitorId='" + param.webMonitorId + "' and errorMessage like '%" + errorMsg + "%'", { type: Sequelize.QueryTypes.SELECT})
   }
 
   /**
