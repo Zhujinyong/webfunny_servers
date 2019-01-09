@@ -124,8 +124,13 @@ class CustomerPVModel {
    * @returns {Promise<*>}
    */
   static async getCustomerKeyByUserId(param) {
-    console.log(Utils.b64DecodeUnicode(param.searchValue))
-    const sql = "select DISTINCT(customerKey) from CustomerPVs where createdAt>" + param.happenTimeScope + " and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
+    const createdAtTime = Utils.addDays(0 - param.timeScope) + " 00:00:00"
+    const sql =
+      "select DISTINCT(customerKey) from CustomerPVs where createdAt>'" + createdAtTime + "' and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
+      + " UNION " +
+      "select DISTINCT(customerKey) from behaviorInfos where createdAt>'" + createdAtTime + "' and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
+      + " UNION " +
+      "select DISTINCT(customerKey) from HttpLogInfos where createdAt>'" + createdAtTime + "' and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
