@@ -9,6 +9,7 @@ const statusCode = require('../util/status-code')
 const fetch = require('node-fetch')
 const Utils = require('../util/utils');
 const log = require("../config/log");
+const fs = require('fs');
 class Common {
   /**
    * 接受并分类处理上传的日志
@@ -149,6 +150,13 @@ class Common {
   static async startDelete() {
     // 每小时执行一次，如果是凌晨3 - 5点钟之间，则开始执行删除操作
     setInterval(() => {
+      try {
+        fs.unlink("/root/.pm2/logs/www-out-*",() => {
+          log.info("成功删除日志", new Date().Format("yyyy-MM-dd hh:mm:ss"))
+        });
+      } catch (e) {
+        log.printInfo(e)
+      }
       const hourStr = new Date().Format("hh");
       if (hourStr === "02") {
         HttpLogInfoModel.deleteHttpLogInfoFifteenDaysAgo(15)
