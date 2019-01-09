@@ -33,7 +33,7 @@ module.exports = (DataTypes) => {
     },
     // 设备名称
     deviceName: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(100),
       allowNull: true,
       field: 'deviceName'
     },
@@ -57,7 +57,7 @@ module.exports = (DataTypes) => {
     },
     // 用户的IP
     monitorIp: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(50),
       allowNull: true,
       field: 'monitorIp'
     },
