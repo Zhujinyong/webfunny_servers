@@ -43,7 +43,7 @@ class Common {
     const paramStr = ctx.request.body.data.replace(/": Script error\./g, "script error")
     // if (paramStr.indexOf("-qa") !== -1 || paramStr.indexOf("-staging") !== -1) {
     if (true) {
-      const param = JSON.parse(ctx.request.body.data)
+      const param = JSON.parse(paramStr)
       const logArray = param.logInfo.split("$$$")
       for(var i = 0; i < logArray.length; i ++) {
         if (!logArray[i]) continue;
