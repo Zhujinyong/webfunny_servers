@@ -84,6 +84,16 @@ class Common {
   }
 
   /**
+   * 接受并分类处理上传的拓展日志
+   * @param ctx
+   * @returns {Promise.<void>}
+   */
+  static async uploadExtendLog(ctx) {
+    ctx.response.status = 200;
+    ctx.body = statusCode.SUCCESS_200('创建信息成功')
+  }
+
+  /**
    * 根据查询参数，查询出该用户所有的行为记录
    * @param ctx
    * @returns {Promise.<void>}
@@ -152,7 +162,7 @@ class Common {
     setInterval(() => {
       try {
         fs.unlink("/root/.pm2/logs/www-out-*",() => {
-          log.info("成功删除日志", new Date().Format("yyyy-MM-dd hh:mm:ss"))
+          log.printInfo("成功删除日志")
         });
       } catch (e) {
         log.printInfo(e)

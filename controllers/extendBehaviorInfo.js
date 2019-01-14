@@ -1,7 +1,7 @@
-const ScreenShotInfoModel = require('../modules/ScreenShotInfo')
+const ExtendBehaviorInfoModel = require('../modules/extendBehaviorInfo')
 const statusCode = require('../util/status-code')
 
-class ScreenShotInfoController {
+class ExtendBehaviorInfoController {
   /**
    * 创建信息
    * @param ctx
@@ -12,8 +12,8 @@ class ScreenShotInfoController {
     const data = JSON.parse(param.data)
     /* 判断参数是否合法 */
     if (req.happenTime) {
-      let ret = await ScreenShotInfoModel.createScreenShotInfo(data);
-      let res = await ScreenShotInfoModel.getScreenShotInfoDetail(ret.id);
+      let ret = await ExtendBehaviorInfoModel.createExtendBehaviorInfo(data);
+      let res = await ExtendBehaviorInfoModel.getExtendBehaviorInfoDetail(ret.id);
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('创建信息成功', res)
@@ -28,11 +28,11 @@ class ScreenShotInfoController {
    * @param ctx
    * @returns {Promise.<void>}
    */
-  static async getScreenShotInfoList(ctx) {
+  static async getExtendBehaviorInfoList(ctx) {
     let req = ctx.request.body
   
     if (req) {
-      const data = await ScreenShotInfoModel.getScreenShotInfoList();
+      const data = await ExtendBehaviorInfoModel.getExtendBehaviorInfoList();
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', data)
@@ -42,28 +42,6 @@ class ScreenShotInfoController {
       ctx.body = statusCode.ERROR_412('查询信息列表失败！');
     }
   
-  }
-  /**
-   * 获取信息列表
-   * @param ctx
-   * @returns {Promise.<void>}
-   */
-  static async getScreenShotInfoListByPage(ctx) {
-    let req = ctx.request
-
-    if (req) {
-      const data = await ScreenShotInfoModel.getScreenShotInfoListByPage();
-      data.forEach((item) => {
-        item.screenInfo = item.screenInfo.toString()
-      })
-      ctx.response.status = 200;
-      ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', data)
-    } else {
-
-      ctx.response.status = 412;
-      ctx.body = statusCode.ERROR_412('查询信息列表失败！');
-    }
-
   }
   
   /**
@@ -75,7 +53,7 @@ class ScreenShotInfoController {
     let id = ctx.params.id;
   
     if (id) {
-      let data = await ScreenShotInfoModel.getScreenShotInfoDetail(id);
+      let data = await ExtendBehaviorInfoModel.getExtendBehaviorInfoDetail(id);
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('查询成功！', data)
@@ -96,7 +74,7 @@ class ScreenShotInfoController {
     let id = ctx.params.id;
   
     if (id && !isNaN(id)) {
-      await ScreenShotInfoModel.deleteScreenShotInfo(id);
+      await ExtendBehaviorInfoModel.deleteExtendBehaviorInfo(id);
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('删除信息成功！')
@@ -117,8 +95,8 @@ class ScreenShotInfoController {
     let id = ctx.params.id;
   
     if (req) {
-      await ScreenShotInfoModel.updateScreenShotInfo(id, req);
-      let data = await ScreenShotInfoModel.getScreenShotInfoDetail(id);
+      await ExtendBehaviorInfoModel.updateExtendBehaviorInfo(id, req);
+      let data = await ExtendBehaviorInfoModel.getExtendBehaviorInfoDetail(id);
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('更新信息成功！', data);
@@ -130,4 +108,4 @@ class ScreenShotInfoController {
   }
 }
 
-module.exports = ScreenShotInfoController
+module.exports = ExtendBehaviorInfoController

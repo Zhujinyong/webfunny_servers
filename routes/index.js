@@ -6,6 +6,7 @@ const JavascriptErrorInfo = require('../controllers/javascriptErrorInfo')
 const ScreenShotInfo = require('../controllers/ScreenShotInfo')
 const IgnoreErrorController = require('../controllers/ignoreError')
 const CustomerPVController = require('../controllers/customerPV')
+const ExtendBehaviorInfo = require('../controllers/extendBehaviorInfo')
 const CommonController = require('../controllers/common')
 const router = new Router({
     prefix: '/api/v1'
@@ -16,8 +17,15 @@ CommonController.startDelete();
 /**
  * 日志相关处理
  */
-// 用户注册
+// 用户上传日志
 router.post('/uploadLog', CommonController.uploadLog);
+
+// 上传拓展日志
+router.post('/uploadExtendLog', CommonController.uploadExtendLog);
+router.post('/extendBehavior', ExtendBehaviorInfo.create);
+
+
+
 // 立邦的开关逻辑
 router.get('/data', CommonController.liBangData);
 
@@ -116,6 +124,8 @@ router.post('/getJavascriptErrorStackCode', JavascriptErrorInfo.getJavascriptErr
  */
 // 创建截屏信息
 router.post('/screenShotInfo', ScreenShotInfo.create);
+// 获取忽略js截屏信息列表
+router.get('/getScreenShotInfoListByPage', ScreenShotInfo.getScreenShotInfoListByPage);
 // 获取截屏详情
 router.get('/screenShotInfo/:id', ScreenShotInfo.detail);
 // 删除截屏

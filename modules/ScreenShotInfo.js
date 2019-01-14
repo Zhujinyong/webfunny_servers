@@ -43,6 +43,15 @@ class ScreenShotInfoModel {
   }
 
   /**
+   * 获取ScreenShotInfo列表
+   * @returns {Promise<*>}
+   */
+  static async getScreenShotInfoListByPage() {
+    let sql = "select * from ScreenShotInfos WHERE webMonitorId='mcl_webmonitor' limit 200, 300"
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+
+  /**
    * 获取ScreenShotInfo详情数据
    * @param id  ScreenShotInfo的ID
    * @returns {Promise<Model>}

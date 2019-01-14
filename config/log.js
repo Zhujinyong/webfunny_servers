@@ -13,14 +13,16 @@ log.error = function(ctx, error, resTime) {
     errorLog.error(formatError(ctx, error, resTime));
   }
 };
-log.printInfo = function (err) {
-  var logText = "param: " + param + "\n";
-  //错误名称
-  logText += "err name: " + err.name + "\n";
-  //错误信息
-  logText += "err message: " + err.message + "\n";
-  //错误详情
-  logText += "err stack: " + err.stack + "\n";
+log.printInfo = function (msg, err) {
+  var logText = "msg: " + msg + "\n";
+  if (err) {
+    //错误名称
+    logText += "err name: " + err.name + "\n";
+    //错误信息
+    logText += "err message: " + err.message + "\n";
+    //错误详情
+    logText += "err stack: " + err.stack + "\n";
+  }
   resLog.info(logText)
 }
 log.errorDetail = function(param, err) {
