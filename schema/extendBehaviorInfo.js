@@ -1,4 +1,3 @@
-const baseInfo = require('./baseInfo');
 module.exports = function (sequelize, DataTypes) {
   return sequelize.define('ExtendBehaviorInfo', {
     // ID 主键

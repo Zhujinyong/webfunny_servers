@@ -11,7 +11,7 @@ class ExtendBehaviorInfoController {
     const param = ctx.request.body
     const data = JSON.parse(param.data)
     /* 判断参数是否合法 */
-    if (req.happenTime) {
+    if (req.userId) {
       let ret = await ExtendBehaviorInfoModel.createExtendBehaviorInfo(data);
       let res = await ExtendBehaviorInfoModel.getExtendBehaviorInfoDetail(ret.id);
   

@@ -5,6 +5,7 @@ const CustomerPVModel = require('../modules/customerPV')
 const IgnoreErrorModel = require('../modules/ignoreError')
 const ScreenShotInfoModel = require('../modules/ScreenShotInfo')
 const HttpLogInfoModel = require('../modules/HttpLogInfo')
+const ExtendBehaviorInfoModel = require('../modules/extendBehaviorInfo')
 const statusCode = require('../util/status-code')
 const fetch = require('node-fetch')
 const Utils = require('../util/utils');
@@ -89,6 +90,8 @@ class Common {
    * @returns {Promise.<void>}
    */
   static async uploadExtendLog(ctx) {
+    const param = JSON.parse(ctx.request.body)
+    ExtendBehaviorInfoModel.createExtendBehaviorInfo(param)
     ctx.response.status = 200;
     ctx.body = statusCode.SUCCESS_200('创建信息成功')
   }
@@ -162,22 +165,24 @@ class Common {
     setInterval(() => {
       try {
         fs.unlink("/root/.pm2/logs/www-out-*",() => {
-          log.printInfo("成功删除日志")
+          log.printInfo("成功删除日志文件")
         });
+        const hourStr = new Date().Format("hh");
+        log.printInfo(new Date().Format("yyyy-MM-dd hh:mm:ss    ") + hourStr + "    开始清理过期数据")
+        if (hourStr === "02") {
+          HttpLogInfoModel.deleteHttpLogInfoFifteenDaysAgo(8)
+        } else if (hourStr === "03") {
+          BehaviorInfoModel.deleteBehaviorInfoFifteenDaysAgo(8)
+        } else if (hourStr === "04") {
+          JavascriptErrorInfoModel.deleteJavascriptErrorInfosFifteenDaysAgo(8)
+        } else if (hourStr === "05") {
+          CustomerPVModel.deleteCustomerPVsFifteenDaysAgo(8)
+        } else if (hourStr === "06") {
+          ScreenShotInfoModel.deleteScreenShotInfoFifteenDaysAgo(8)
+        }
+        log.printInfo(new Date().Format("yyyy-MM-dd hh:mm:ss    ") + hourStr + "    数据清理完成")
       } catch (e) {
         log.printInfo(e)
-      }
-      const hourStr = new Date().Format("hh");
-      if (hourStr === "02") {
-        HttpLogInfoModel.deleteHttpLogInfoFifteenDaysAgo(15)
-      } else if (hourStr === "03") {
-        BehaviorInfoModel.deleteBehaviorInfoFifteenDaysAgo(15)
-      } else if (hourStr === "04") {
-        JavascriptErrorInfoModel.deleteJavascriptErrorInfosFifteenDaysAgo(15)
-      } else if (hourStr === "05") {
-        CustomerPVModel.deleteCustomerPVsFifteenDaysAgo(15)
-      } else if (hourStr === "06") {
-        ScreenShotInfoModel.deleteScreenShotInfoFifteenDaysAgo(15)
       }
     }, 30 * 60 * 1000)
   }
