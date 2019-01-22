@@ -90,7 +90,12 @@ class Common {
    * @returns {Promise.<void>}
    */
   static async uploadExtendLog(ctx) {
-    const param = JSON.parse(ctx.request.body)
+    let param = {}
+    if (typeof ctx.request.body !== 'object') {
+      param = JSON.parse(ctx.request.body)
+    } else {
+      param = ctx.request.body
+    }
     ExtendBehaviorInfoModel.createExtendBehaviorInfo(param)
     ctx.response.status = 200;
     ctx.body = statusCode.SUCCESS_200('创建信息成功')
