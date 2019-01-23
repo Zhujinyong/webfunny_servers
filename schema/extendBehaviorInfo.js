@@ -1,3 +1,4 @@
+const moment = require('moment');
 module.exports = function (sequelize, DataTypes) {
   return sequelize.define('ExtendBehaviorInfo', {
     // ID 主键
@@ -36,6 +37,20 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true,
       field: 'description'
+    },
+    // 创建时间
+    createdAt: {
+      type: DataTypes.DATE,
+      get() {
+        return moment(this.getDataValue('createdAt')).format('YYYY-MM-DD HH:mm:ss');
+      }
+    },
+    // 更新时间
+    updatedAt: {
+      type: DataTypes.DATE,
+      get() {
+        return moment(this.getDataValue('updatedAt')).format('YYYY-MM-DD HH:mm:ss');
+      }
     }
   }, {
     // 如果为 true 则表的名称和 model 相同，即 user
@@ -48,10 +63,16 @@ module.exports = function (sequelize, DataTypes) {
         method: "BTREE",
         fields: [
           {
-            attribute: "userId",
-          },
+            attribute: "userId"
+          }
+        ]
+      },
+      {
+        name: "createdAtIndex",
+        method: "BTREE",
+        fields: [
           {
-            attribute: "createdAt",
+            attribute: "createdAt"
           }
         ]
       }

@@ -19,6 +19,7 @@ CommonController.startDelete();
  */
 // 用户上传日志
 router.post('/uploadLog', CommonController.uploadLog);
+router.post('/upLg', CommonController.upLg);
 
 // 上传拓展日志
 router.post('/uploadExtendLog', CommonController.uploadExtendLog);

@@ -13,11 +13,21 @@ const log = require("../config/log");
 const fs = require('fs');
 class Common {
   /**
-   * 接受并分类处理上传的日志
+   * 旧版上传日志的接口
    * @param ctx
    * @returns {Promise.<void>}
    */
   static async uploadLog(ctx) {
+    ctx.response.status = 200;
+    ctx.body = statusCode.SUCCESS_200('创建信息成功')
+  }
+
+  /**
+   * 接受并分类处理上传的日志
+   * @param ctx
+   * @returns {Promise.<void>}
+   */
+  static async upLg(ctx) {
     var req = ctx.req
     const clientIpString = req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||

@@ -50,13 +50,34 @@ module.exports = function (sequelize, DataTypes) {
         method: "BTREE",
         fields: [
           {
-            attribute: "userId",
-          },
+            attribute: "userId"
+          }
+        ]
+      },
+      {
+        name: "customerKeyIndex",
+        method: "BTREE",
+        fields: [
           {
-            attribute: "customerKey",
-          },
+            attribute: "customerKey"
+          }
+        ]
+      },
+      {
+        name: "createdAtIndex",
+        method: "BTREE",
+        fields: [
           {
-            attribute: "createdAt",
+            attribute: "createdAt"
+          }
+        ]
+      },
+      {
+        name: "happenTimeIndex",
+        method: "BTREE",
+        fields: [
+          {
+            attribute: "happenTime"
           }
         ]
       }

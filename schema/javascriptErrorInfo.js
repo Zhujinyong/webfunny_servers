@@ -9,6 +9,60 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       autoIncrement: true,
     },
+    // 用户标识ID
+    pageKey: {
+      type: DataTypes.STRING(36),
+      allowNull: true,
+      field: 'pageKey'
+    },
+    // 设备名称
+    deviceName: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+      field: 'deviceName'
+    },
+    // 系统信息
+    os: {
+      type: DataTypes.STRING(20),
+      allowNull: true,
+      field: 'os'
+    },
+    // 浏览器名称
+    browserName: {
+      type: DataTypes.STRING(20),
+      allowNull: true,
+      field: 'browserName'
+    },
+    // 浏览器版本号
+    browserVersion: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      field: 'browserVersion'
+    },
+    // 用户的IP
+    monitorIp: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+      field: 'monitorIp'
+    },
+    // 国家
+    country: {
+      type: DataTypes.STRING(20),
+      allowNull: true,
+      field: 'country'
+    },
+    // 省份
+    province: {
+      type: DataTypes.STRING(30),
+      allowNull: true,
+      field: 'province'
+    },
+    // 城市
+    city: {
+      type: DataTypes.STRING(30),
+      allowNull: true,
+      field: 'city'
+    },
     // JS报错信息
     errorMessage: {
       type: DataTypes.TEXT,
@@ -38,13 +92,34 @@ module.exports = function (sequelize, DataTypes) {
         method: "BTREE",
         fields: [
           {
-            attribute: "userId",
-          },
+            attribute: "userId"
+          }
+        ]
+      },
+      {
+        name: "customerKeyIndex",
+        method: "BTREE",
+        fields: [
           {
-            attribute: "customerKey",
-          },
+            attribute: "customerKey"
+          }
+        ]
+      },
+      {
+        name: "createdAtIndex",
+        method: "BTREE",
+        fields: [
           {
-            attribute: "createdAt",
+            attribute: "createdAt"
+          }
+        ]
+      },
+      {
+        name: "happenTimeIndex",
+        method: "BTREE",
+        fields: [
+          {
+            attribute: "happenTime"
           }
         ]
       }
