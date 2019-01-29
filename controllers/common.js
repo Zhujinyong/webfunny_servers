@@ -185,13 +185,13 @@ class Common {
         const hourStr = new Date().Format("hh");
         log.printInfo(new Date().Format("yyyy-MM-dd hh:mm:ss    ") + hourStr + "    开始清理过期数据")
         if (hourStr === "02") {
-          HttpLogInfoModel.deleteHttpLogInfoFifteenDaysAgo(8)
+          HttpLogInfoModel.deleteHttpLogInfoFifteenDaysAgo(20)
         } else if (hourStr === "03") {
-          BehaviorInfoModel.deleteBehaviorInfoFifteenDaysAgo(8)
+          BehaviorInfoModel.deleteBehaviorInfoFifteenDaysAgo(20)
         } else if (hourStr === "04") {
-          JavascriptErrorInfoModel.deleteJavascriptErrorInfosFifteenDaysAgo(8)
+          JavascriptErrorInfoModel.deleteJavascriptErrorInfosFifteenDaysAgo(20)
         } else if (hourStr === "05") {
-          CustomerPVModel.deleteCustomerPVsFifteenDaysAgo(8)
+          CustomerPVModel.deleteCustomerPVsFifteenDaysAgo(20)
         } else if (hourStr === "06") {
           ScreenShotInfoModel.deleteScreenShotInfoFifteenDaysAgo(8)
         }
