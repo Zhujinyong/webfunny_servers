@@ -2,6 +2,7 @@ const BehaviorInfoModel = require('../modules/behaviorInfo')
 const JavascriptErrorInfoModel = require('../modules/javascriptErrorInfo')
 const ScreenShotInfo = require('../modules/ScreenShotInfo')
 const CustomerPVModel = require('../modules/customerPV')
+const LoadPageModel = require('../modules/loadPageInfo')
 const IgnoreErrorModel = require('../modules/ignoreError')
 const ScreenShotInfoModel = require('../modules/ScreenShotInfo')
 const HttpLogInfoModel = require('../modules/HttpLogInfo')
@@ -81,6 +82,9 @@ class Common {
             break;
           case "CUSTOMER_PV":
             await CustomerPVModel.createCustomerPV(logInfo);
+            break;
+          case "LOAD_PAGE":
+            await LoadPageModel.createLoadPageInfo(logInfo);
             break;
           default:
             break;

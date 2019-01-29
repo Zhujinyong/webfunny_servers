@@ -6,6 +6,7 @@ const JavascriptErrorInfo = require('../controllers/javascriptErrorInfo')
 const ScreenShotInfo = require('../controllers/ScreenShotInfo')
 const IgnoreErrorController = require('../controllers/ignoreError')
 const CustomerPVController = require('../controllers/customerPV')
+const LoadPageController = require('../controllers/loadPageInfo')
 const ExtendBehaviorInfo = require('../controllers/extendBehaviorInfo')
 const CommonController = require('../controllers/common')
 const router = new Router({
@@ -77,16 +78,28 @@ router.put('/behaviorInfo/:id', BehaviorInfoController.update);
 /**
  * 用户访问信息接口
  */
-// 创建文章
+// 创建PV信息
 router.post('/customerPV', CustomerPVController.create);
-// 获取文章列表
+// 获取PV列表
 router.get('/customerPV', CustomerPVController.getCustomerPVList);
-// 获取文章详情
+// 获取PV详情
 router.get('/customerPV/:id', CustomerPVController.detail);
-// 删除文章
+// 删除PV
 router.delete('/customerPV/:id', CustomerPVController.delete);
-// 更改文章
+// 更改PV
 router.put('/customerPV/:id', CustomerPVController.update);
+
+/**
+ * 用户加载页面信息接口
+ */
+// 创建加载信息
+router.post('/loadPage', LoadPageController.create);
+// 获取加载信息详情
+router.get('/loadPage/:id', LoadPageController.detail);
+// 删除加载信息
+router.delete('/loadPage/:id', LoadPageController.delete);
+// 更改加载信息
+router.put('/loadPage/:id', LoadPageController.update);
 
 /**
  * JS错误信息接口
