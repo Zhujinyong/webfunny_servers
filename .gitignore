@@ -8,4 +8,5 @@ dist
 .idea/
 .vscode/
 logs/
+config/local_db.js
 .eslintrc
