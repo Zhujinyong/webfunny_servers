@@ -130,6 +130,10 @@ class Common {
     let result4 = []
     let result5 = []
     let result = []
+    let pvCountList = null
+    let loadPageTimeList = null
+    let ipPath = ""
+    let cusDetail = null
     // 查询当前用户的customerKey列表
     await CustomerPVModel.getCustomerKeyByUserId(param).then((res) => {
       res.forEach((customerKeyInfo) => {
@@ -167,13 +171,42 @@ class Common {
       result5 = res
     })
 
+    await CustomerPVModel.getCustomerPVDetailByCustomerKey(param, customerKeySql).then((res) => {
+      cusDetail = res[0]
+      if (cusDetail) {
+        ipPath = "http://ip.taobao.com/service/getIpInfo.php?ip=" + cusDetail.monitorIp
+      }
+    })
+    if (ipPath) {
+      await fetch(ipPath)
+        .then( res => res.text())
+        .then( body => {
+          try {
+            const obj = JSON.parse(body);
+            cusDetail.province = obj.data.region || "未知";
+            cusDetail.city = obj.data.city;
+          } catch(e) {
+            cusDetail.province = "未知";
+            cusDetail.city = "未知";
+          }
+
+        });
+    }
+    await CustomerPVModel.getPVsByCustomerKey(param, customerKeySql).then((res) => {
+      pvCountList = res
+    })
+
+    await LoadPageModel.getPageLoadTimeByCustomerKey(param, customerKeySql).then((res) => {
+      loadPageTimeList = res
+    })
+
     result = result.concat(result1, result2, result3, result5)
     result4.forEach((item) => {
       item.screenInfo = (item.screenInfo || "").toString()
       result.push(item)
     })
     ctx.response.status = 200;
-    ctx.body = statusCode.SUCCESS_200('创建信息成功', result)
+    ctx.body = statusCode.SUCCESS_200('创建信息成功', {behaviorList: result, pvCountList, loadPageTimeList, cusDetail})
   }
 
   /**

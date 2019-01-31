@@ -134,6 +134,21 @@ class CustomerPVModel {
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
+  /**
+   * 根据customerKey 获取用户详情
+   */
+  static async getCustomerPVDetailByCustomerKey(param, customerKeySql) {
+    let sql = "select * from CustomerPVs where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' order by happenTime desc limit 1"
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+
+  /**
+   * 根据customerKey获取用户访问每个页面的次数
+   */
+  static async getPVsByCustomerKey(param, customerKeySql) {
+    let sql = "select CAST(simpleUrl AS char) as simpleUrl, count(simpleUrl) from CustomerPVs where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' GROUP BY simpleUrl "
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
 }
 
 module.exports = CustomerPVModel
