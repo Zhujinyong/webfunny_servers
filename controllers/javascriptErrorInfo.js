@@ -55,7 +55,7 @@ class JavascriptErrorInfoController {
     await JavascriptErrorInfoModel.getJavascriptErrorInfoListByDay(param).then(data => {
       if (data) {
         ctx.response.status = 200;
-        ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', data)
+        ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', utils.handleDateResult(data))
       } else {
         ctx.response.status = 412;
         ctx.body = statusCode.ERROR_412('查询信息列表失败！');
@@ -79,18 +79,11 @@ class JavascriptErrorInfoController {
     let hour = nowHour;
     const startTimeStr = year + "-" + month + "-" + day + " ";
     const endTimeStr = year + "-" + month + "-" + day + " ";
-
-    const startDay = year + "-" + month + "-" + day + " 00:00:00";
-    const endDay = year + "-" + month + "-" + day + " 23:59:59";
-    await JavascriptErrorInfoModel.getJavascriptErrorCountByDay(startDay, endDay, param).then(data => {
-      result.push({day: "总数", count: data[0].count});
-      result.push({day: "……", count: 0}, {day: "……", count: 0}, {day: "……", count: 0}, {day: "……", count: 0}, {day: "……", count: 0}, {day: "……", count: 0});
-    })
-
     let startTime = startTimeStr + hour + ":00:00";
     let endTime = endTimeStr + hour + ":59:59";
-    for (var i = 5; i >= 0; i -- ) {
+    for (var i = 23; i >= 0; i -- ) {
       hour = nowHour - i;
+      if (hour < 0) continue;
       startTime = startTimeStr + hour + ":00:00";
       endTime = endTimeStr + hour + ":59:59";
       await JavascriptErrorInfoModel.getJavascriptErrorInfoListByHour(startTime, endTime, param).then(data => {
@@ -240,7 +233,6 @@ class JavascriptErrorInfoController {
   
     if (id) {
       let data = await JavascriptErrorInfoModel.getJavascriptErrorInfoDetail(id);
-  
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('查询成功！', data)
     } else {

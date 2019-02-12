@@ -107,15 +107,6 @@ class CustomerPVModel {
    * @returns {Promise<*>}
    */
   static async getBehaviorsByUser(param, customerKeySql) {
-    // var phoneReg = /^1\d{10}$/
-    // var sql = ""
-    // if (phoneReg.test(param.searchValue)) {
-    //   sql = "select * from CustomerPVs where webMonitorId='" + param.webMonitorId + "' and firstUserParam='" + param.searchValue + "'"
-    // } else {
-    //   sql = "select * from CustomerPVs where webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
-    // }
-    // return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
-
     let sql = "select * from CustomerPVs where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' "
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
@@ -147,6 +138,22 @@ class CustomerPVModel {
    */
   static async getPVsByCustomerKey(param, customerKeySql) {
     let sql = "select CAST(simpleUrl AS char) as simpleUrl, count(simpleUrl) from CustomerPVs where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' GROUP BY simpleUrl "
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+
+  /**
+   * 根据时间获取日活量
+   */
+  static async getCustomerCountByTime(param) {
+    const endTimeScope = Utils.addDays(0 - param.timeScope)
+    let sql = "select DATE_FORMAT(createdAt,'%Y-%m-%d') as day, count(DISTINCT(customerKey)) as count from LoadPageInfos WHERE createdAt>'" + endTimeScope + "' AND webMonitorId = '" + param.webMonitorId + "' GROUP BY day"
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+  /**
+   * 根据时间获取某一天的用户数量
+   */
+  static async getCustomerCountByDayTime(webMonitorId, startTimeScope, endTimeScope) {
+    let sql = "select count(DISTINCT(customerKey)) as count from LoadPageInfos WHERE createdAt>'" + startTimeScope + "' AND createdAt>'" + endTimeScope + "'  AND webMonitorId = '" + webMonitorId + "'"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 }

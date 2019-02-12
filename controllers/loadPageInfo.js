@@ -106,6 +106,25 @@ class LoadPageInfoController {
       ctx.body = statusCode.ERROR_412('更新信息失败！')
     }
   }
+
+  /**
+   * 根据时间获取每天的日活量
+   * @param ctx
+   * @returns {Promise.<void>}
+   */
+  static async getPageLoadTimeByDate(ctx) {
+    let req = ctx.request.body
+    const params = JSON.parse(req)
+    if (req) {
+      const data = await LoadPageInfoModel.getPageLoadTimeByDate(params);
+      ctx.response.status = 200;
+      ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', data)
+    } else {
+
+      ctx.response.status = 412;
+      ctx.body = statusCode.ERROR_412('查询信息列表失败！');
+    }
+  }
 }
 
 module.exports = LoadPageInfoController

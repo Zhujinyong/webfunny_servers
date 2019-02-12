@@ -1,7 +1,7 @@
-const CustomerPVModel = require('../modules/customerPV')
+const DailyActivityModel = require('../modules/dailyActivity')
 const statusCode = require('../util/status-code')
-const utils = require("../util/utils")
-class CustomerPVController {
+
+class DailyActivityController {
   /**
    * 创建信息
    * @param ctx
@@ -12,8 +12,8 @@ class CustomerPVController {
     const data = JSON.parse(param.data)
     /* 判断参数是否合法 */
     if (req.happenTime) {
-      let ret = await CustomerPVModel.createCustomerPV(data);
-      let res = await CustomerPVModel.getCustomerPVDetail(ret.id);
+      let ret = await DailyActivityModel.createDailyActivity(data);
+      let res = await DailyActivityModel.getDailyActivityDetail(ret.id);
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('创建信息成功', res)
@@ -28,11 +28,11 @@ class CustomerPVController {
    * @param ctx
    * @returns {Promise.<void>}
    */
-  static async getCustomerPVList(ctx) {
+  static async getDailyActivityList(ctx) {
     let req = ctx.request.body
   
     if (req) {
-      const data = await CustomerPVModel.getCustomerPVList();
+      const data = await DailyActivityModel.getDailyActivityList();
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', data)
@@ -53,7 +53,7 @@ class CustomerPVController {
     let id = ctx.params.id;
   
     if (id) {
-      let data = await CustomerPVModel.getCustomerPVDetail(id);
+      let data = await DailyActivityModel.getDailyActivityDetail(id);
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('查询成功！', data)
@@ -74,7 +74,7 @@ class CustomerPVController {
     let id = ctx.params.id;
   
     if (id && !isNaN(id)) {
-      await CustomerPVModel.deleteCustomerPV(id);
+      await DailyActivityModel.deleteDailyActivity(id);
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('删除信息成功！')
@@ -95,8 +95,8 @@ class CustomerPVController {
     let id = ctx.params.id;
   
     if (req) {
-      await CustomerPVModel.updateCustomerPV(id, req);
-      let data = await CustomerPVModel.getCustomerPVDetail(id);
+      await DailyActivityModel.updateDailyActivity(id, req);
+      let data = await DailyActivityModel.getDailyActivityDetail(id);
   
       ctx.response.status = 200;
       ctx.body = statusCode.SUCCESS_200('更新信息成功！', data);
@@ -106,25 +106,6 @@ class CustomerPVController {
       ctx.body = statusCode.ERROR_412('更新信息失败！')
     }
   }
-
-  /**
-   * 根据时间获取每天的日活量
-   * @param ctx
-   * @returns {Promise.<void>}
-   */
-  static async getCustomerCountByTime(ctx) {
-    let req = ctx.request.body
-    const params = JSON.parse(req)
-    if (req) {
-      const data = await CustomerPVModel.getCustomerCountByTime(params);
-      ctx.response.status = 200;
-      ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', utils.handleDateResult(data, params.timeScope))
-    } else {
-
-      ctx.response.status = 412;
-      ctx.body = statusCode.ERROR_412('查询信息列表失败！');
-    }
-  }
 }
 
-module.exports = CustomerPVController
+module.exports = DailyActivityController

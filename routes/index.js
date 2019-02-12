@@ -88,6 +88,9 @@ router.get('/customerPV/:id', CustomerPVController.detail);
 router.delete('/customerPV/:id', CustomerPVController.delete);
 // 更改PV
 router.put('/customerPV/:id', CustomerPVController.update);
+// 获取日活量
+router.post('/getCustomerCountByTime', CustomerPVController.getCustomerCountByTime);
+
 
 /**
  * 用户加载页面信息接口
@@ -100,6 +103,8 @@ router.get('/loadPage/:id', LoadPageController.detail);
 router.delete('/loadPage/:id', LoadPageController.delete);
 // 更改加载信息
 router.put('/loadPage/:id', LoadPageController.update);
+// 查询当日页面加载的平均时间
+router.post('/getPageLoadTimeByDate', LoadPageController.getPageLoadTimeByDate);
 
 /**
  * JS错误信息接口

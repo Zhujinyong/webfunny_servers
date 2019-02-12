@@ -10,8 +10,7 @@ module.exports = {
       return v.toString(16);
     });
   },
-  handleDateResult: function(result) {
-    console.log(result)
+  handleDateResult: function(result, scope = 30) {
     function addDate(date, days) {
       var d=new Date(date);
       d.setDate(d.getDate()+days);
@@ -23,7 +22,7 @@ module.exports = {
       return d.getFullYear() + '-' + m + '-' + dayValue;
     }
     var newResult = [];
-    for (var i = 0; i < 30; i ++) {
+    for (var i = 0; i < scope; i ++) {
       var tempDate = addDate(new Date(), -i);
       var tempObj = {day: tempDate.substring(5, 10), count: 0, loadTime: 0};
       for (var j = 0; j < result.length; j ++) {
