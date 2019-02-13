@@ -82,7 +82,7 @@ class LoadPageInfoModel {
    */
   static async getPageLoadTimeByDate(param) {
     const endTimeScope = utils.addDays(0 - param.timeScope)
-    const sql = "SELECT CAST(simpleUrl AS char) as simpleUrl, COUNT(simpleUrl) as urlCount, AVG(loadPage) as loadPage, AVG(domReady) as domReady, AVG(request) as resource, AVG(lookupDomain) as DNS from LoadPageInfos where createdAt>'" + endTimeScope + "' and loadPage>0 and webMonitorId='" + param.webMonitorId + "' GROUP BY simpleUrl having urlCount>10 ORDER BY loadPage desc limit 15"
+    const sql = "SELECT CAST(simpleUrl AS char) as simpleUrl, COUNT(simpleUrl) as urlCount, AVG(loadPage) as loadPage, AVG(domReady) as domReady, AVG(request) as resource, AVG(lookupDomain) as DNS from LoadPageInfos where createdAt>'" + endTimeScope + "' and loadPage>1 and loadPage<15000 and webMonitorId='" + param.webMonitorId + "' GROUP BY simpleUrl having urlCount>50 ORDER BY loadPage desc limit 15"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 }

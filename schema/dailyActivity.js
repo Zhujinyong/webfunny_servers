@@ -8,6 +8,24 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
+    },
+    // 时间
+    day: {
+      type: DataTypes.STRING(10),
+      allowNull: true,
+      field: 'webMonitorId'
+    },
+    // 数量
+    count: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      field: 'webMonitorId'
+    },
+    // 监控ID
+    webMonitorId: {
+      type: DataTypes.STRING(36),
+      allowNull: true,
+      field: 'webMonitorId'
     }
   }, {
     // 如果为 true 则表的名称和 model 相同，即 user
