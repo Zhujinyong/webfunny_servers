@@ -10,7 +10,7 @@ const LoadPageController = require('../controllers/loadPageInfo')
 const ExtendBehaviorInfo = require('../controllers/extendBehaviorInfo')
 const CommonController = require('../controllers/common')
 const router = new Router({
-    prefix: '/api/v1'
+    prefix: '/server'
 })
 
 CommonController.startDelete();
