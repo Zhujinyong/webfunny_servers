@@ -125,6 +125,24 @@ class CustomerPVController {
       ctx.body = statusCode.ERROR_412('查询信息列表失败！');
     }
   }
+  /**
+   * 根据平台类型，获取设备分类
+   * @param ctx
+   * @returns {Promise.<void>}
+   */
+  static async getOsAnalysis(ctx) {
+    let req = ctx.request.body
+    const params = JSON.parse(req)
+    if (req) {
+      const data = await CustomerPVModel.getCustomerCountByTime(params);
+      ctx.response.status = 200;
+      ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', utils.handleDateResult(data, params.timeScope))
+    } else {
+
+      ctx.response.status = 412;
+      ctx.body = statusCode.ERROR_412('查询信息列表失败！');
+    }
+  }
 }
 
 module.exports = CustomerPVController

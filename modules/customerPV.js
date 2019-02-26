@@ -150,6 +150,14 @@ class CustomerPVModel {
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
   /**
+   * 获取平台分布数据
+   */
+  static async getOsAnalysis(param) {
+    const endTimeScope = Utils.addDays(0 - param.timeScope)
+    let sql = "SELECT os, count(os) from CustomerPVs where createdAt>'" + endTimeScope + "' AND webMonitorId = '" + param.webMonitorId + "' GROUP BY os"
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+  /**
    * 根据时间获取某一天的用户数量
    */
   static async getCustomerCountByDayTime(webMonitorId, startTimeScope, endTimeScope) {

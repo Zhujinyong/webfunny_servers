@@ -70,7 +70,7 @@ class JavascriptErrorInfoController {
    */
   static async getJavascriptErrorInfoListByHour(ctx) {
     const param = utils.parseQs(ctx.request.url)
-    const result = [];
+    const result1 = [];
     const nowDate = new Date();
     const year = nowDate.getFullYear();
     const month = nowDate.getMonth() + 1;
@@ -87,11 +87,21 @@ class JavascriptErrorInfoController {
       startTime = startTimeStr + hour + ":00:00";
       endTime = endTimeStr + hour + ":59:59";
       await JavascriptErrorInfoModel.getJavascriptErrorInfoListByHour(startTime, endTime, param).then(data => {
-        result.push({day: hour + "点", count: data[0].count});
+        result1.push({day: hour + "点", count: data[0].count});
+      })
+    }
+    const result2 = []
+    for (var i = 23; i >= 0; i -- ) {
+      hour = nowHour - i;
+      if (hour < 0) continue;
+      startTime = utils.addDays(-7) + " " + hour + ":00:00";
+      endTime = utils.addDays(-7) + " " + hour + ":59:59";
+      await JavascriptErrorInfoModel.getJavascriptErrorInfoListByHour(startTime, endTime, param).then(data => {
+        result2.push({day: hour + "点", count: data[0].count});
       })
     }
     ctx.response.status = 200;
-    ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', result)
+    ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', {today: result1, seven: result2})
   }
 
   /**

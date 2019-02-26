@@ -38,6 +38,12 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
       field: 'description'
     },
+    // 发生时间
+    happenTime: {
+      type: DataTypes.STRING(16),
+      allowNull: true,
+      field: 'happenTime'
+    },
     // 创建时间
     createdAt: {
       type: DataTypes.DATE,

@@ -68,6 +68,15 @@ class ExtendBehaviorInfoModel {
     return true
   }
 
+
+  /**
+   * 获取当前用户所有的请求记录
+   * @returns {Promise<*>}
+   */
+  static async getExtendBehaviorInfoByUserId(userIdSql) {
+    let sql = "select * from ExtendBehaviorInfos where " + userIdSql
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
 }
 
 module.exports = ExtendBehaviorInfoModel

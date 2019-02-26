@@ -129,6 +129,7 @@ class Common {
     let result3 = []
     let result4 = []
     let result5 = []
+    let result6 = []
     let result = []
     let pvCountList = null
     let loadPageTimeList = null
@@ -141,6 +142,7 @@ class Common {
       })
     })
     let customerKeySql = ""
+    let userIdSql = "userId='" + Utils.b64DecodeUnicode(param.searchValue) + "' "
     if (customerKeyList.length) {
       customerKeyList.forEach((customerKey, index) => {
         if (index === customerKeyList.length -1) {
@@ -170,7 +172,12 @@ class Common {
     await HttpLogInfoModel.getHttpLogsByUser(param, customerKeySql).then((res) => {
       result5 = res
     })
-
+    await ExtendBehaviorInfoModel.getExtendBehaviorInfoByUserId(userIdSql).then((res) => {
+      res.forEach((r) => {
+        r.happenTime = new Date(r.createdAt).getTime()
+      })
+      result6 = res
+    })
     await CustomerPVModel.getCustomerPVDetailByCustomerKey(param, customerKeySql).then((res) => {
       cusDetail = res[0]
       if (cusDetail) {
@@ -178,19 +185,25 @@ class Common {
       }
     })
     if (ipPath) {
-      await fetch(ipPath)
-        .then( res => res.text())
-        .then( body => {
-          try {
-            const obj = JSON.parse(body);
-            cusDetail.province = obj.data.region || "未知";
-            cusDetail.city = obj.data.city;
-          } catch(e) {
-            cusDetail.province = "未知";
-            cusDetail.city = "未知";
-          }
+      try {
+        await fetch(ipPath)
+          .then( res => res.text())
+          .then( body => {
+            try {
+              const obj = JSON.parse(body);
+              cusDetail.province = obj.data.region || "未知";
+              cusDetail.city = obj.data.city;
+            } catch(e) {
+              cusDetail.province = "未知";
+              cusDetail.city = "未知";
+            }
 
-        });
+          });
+      } catch (e) {
+        cusDetail.province = "未知";
+        cusDetail.city = "未知";
+      }
+
     }
     await CustomerPVModel.getPVsByCustomerKey(param, customerKeySql).then((res) => {
       pvCountList = res
@@ -200,7 +213,7 @@ class Common {
       loadPageTimeList = res
     })
 
-    result = result.concat(result1, result2, result3, result5)
+    result = result.concat(result1, result2, result3, result5, result6)
     result4.forEach((item) => {
       item.screenInfo = (item.screenInfo || "").toString()
       result.push(item)
@@ -213,30 +226,6 @@ class Common {
    * 启动数据删除， 只记录最近15天的数据
    */
   static async startDelete() {
-    // 每小时执行一次，如果是凌晨3 - 5点钟之间，则开始执行删除操作
-    setInterval(() => {
-      try {
-        fs.unlink("/root/.pm2/logs/www-out-*",() => {
-          log.printInfo("成功删除日志文件")
-        });
-        const hourStr = new Date().Format("hh");
-        log.printInfo(new Date().Format("yyyy-MM-dd hh:mm:ss    ") + hourStr + "    开始清理过期数据")
-        if (hourStr === "02") {
-          HttpLogInfoModel.deleteHttpLogInfoFifteenDaysAgo(20)
-        } else if (hourStr === "03") {
-          BehaviorInfoModel.deleteBehaviorInfoFifteenDaysAgo(20)
-        } else if (hourStr === "04") {
-          JavascriptErrorInfoModel.deleteJavascriptErrorInfosFifteenDaysAgo(20)
-        } else if (hourStr === "05") {
-          CustomerPVModel.deleteCustomerPVsFifteenDaysAgo(20)
-        } else if (hourStr === "06") {
-          ScreenShotInfoModel.deleteScreenShotInfoFifteenDaysAgo(8)
-        }
-        log.printInfo(new Date().Format("yyyy-MM-dd hh:mm:ss    ") + hourStr + "    数据清理完成")
-      } catch (e) {
-        log.printInfo(e)
-      }
-    }, 30 * 60 * 1000)
   }
 
   /**
