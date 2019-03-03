@@ -59,7 +59,7 @@ class JavascriptErrorInfoModel {
    * @returns {Promise<*>}
    */
   static async getJavascriptErrorInfoListByDay(param) {
-    return await Sequelize.query("select DATE_FORMAT(createdAt,'%Y-%m-%d') as day, count(id) as count from JavascriptErrorInfos WHERE webMonitorId='" + param.webMonitorId + "' and DATE_SUB(CURDATE(),INTERVAL 14 DAY) <= createdAt GROUP BY day", { type: Sequelize.QueryTypes.SELECT})
+    return await Sequelize.query("select DATE_FORMAT(createdAt,'%Y-%m-%d') as day, count(id) as count from JavascriptErrorInfos WHERE webMonitorId='" + param.webMonitorId + "' and DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= createdAt GROUP BY day", { type: Sequelize.QueryTypes.SELECT})
   }
 
   /**
