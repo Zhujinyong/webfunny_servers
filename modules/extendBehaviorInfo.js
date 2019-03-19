@@ -73,8 +73,8 @@ class ExtendBehaviorInfoModel {
    * 获取当前用户所有的请求记录
    * @returns {Promise<*>}
    */
-  static async getExtendBehaviorInfoByUserId(userIdSql) {
-    let sql = "select * from ExtendBehaviorInfos where " + userIdSql
+  static async getExtendBehaviorInfoByUserId(happenTimeSql, userIdSql) {
+    let sql = "select * from ExtendBehaviorInfos where " + happenTimeSql + "and" + userIdSql
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 }

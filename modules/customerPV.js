@@ -106,8 +106,8 @@ class CustomerPVModel {
    * 获取当前用户所有的行为记录
    * @returns {Promise<*>}
    */
-  static async getBehaviorsByUser(param, customerKeySql) {
-    let sql = "select * from CustomerPVs where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' "
+  static async getBehaviorsByUser(webMonitorIdSql, customerKeySql, happenTimeSql) {
+    let sql = "select * from CustomerPVs where " + happenTimeSql + " and " + customerKeySql + " and " + webMonitorIdSql
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
   /**
@@ -128,8 +128,8 @@ class CustomerPVModel {
   /**
    * 根据customerKey 获取用户详情
    */
-  static async getCustomerPVDetailByCustomerKey(param, customerKeySql) {
-    let sql = "select * from CustomerPVs where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' order by happenTime desc limit 1"
+  static async getCustomerPVDetailByCustomerKey(webMonitorIdSql, customerKeySql, happenTimeSql) {
+    let sql = "select * from CustomerPVs where " + happenTimeSql + "and" + customerKeySql + " and " + webMonitorIdSql + " limit 1"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 

@@ -83,8 +83,8 @@ class BehaviorInfoModel {
    * 获取当前用户所有的行为记录
    * @returns {Promise<*>}
    */
-  static async getBehaviorsByUser(param, customerKeySql) {
-    let sql = "select * from behaviorInfos where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' "
+  static async getBehaviorsByUser(webMonitorIdSql, customerKeySql, happenTimeSql) {
+    let sql = "select * from behaviorInfos where " + happenTimeSql + " and " + customerKeySql + " and " + webMonitorIdSql
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 

@@ -7,6 +7,7 @@ const IgnoreErrorModel = require('../modules/ignoreError')
 const ScreenShotInfoModel = require('../modules/ScreenShotInfo')
 const HttpLogInfoModel = require('../modules/HttpLogInfo')
 const ExtendBehaviorInfoModel = require('../modules/extendBehaviorInfo')
+const ResourceLoadInfo = require('../modules/resourceLoadInfo')
 const statusCode = require('../util/status-code')
 const fetch = require('node-fetch')
 const Utils = require('../util/utils');
@@ -122,7 +123,7 @@ class Common {
    */
   static async searchBehaviorsRecord(ctx) {
     const param = JSON.parse(ctx.request.body)
-    param.happenTimeScope = new Date(Utils.addDays(0 - param.timeScope)).getTime()
+    param.happenTimeScope = new Date(Utils.addDays(0 - param.timeScope) + " 00:00:00").getTime()
     let customerKeyList = []
     let result1 = []
     let result2 = []
@@ -130,11 +131,83 @@ class Common {
     let result4 = []
     let result5 = []
     let result6 = []
+    let result7 = []
     let result = []
+    let startDateTime = new Date().getTime()
+    // 查询当前用户的customerKey列表
+    await CustomerPVModel.getCustomerKeyByUserId(param).then((res) => {
+      res.forEach((customerKeyInfo) => {
+        customerKeyList.push(customerKeyInfo.customerKey)
+      })
+      let currentDateTime = new Date().getTime()
+      console.log("customerKey获取时间：", currentDateTime - startDateTime)
+      startDateTime = currentDateTime
+    })
+    let customerKeySql = ""
+    let webMonitorIdSql = " webMonitorId='" + param.webMonitorId + "' "
+    let happenTimeSql = " happenTime>" + param.happenTimeScope + " "
+    let userIdSql = " userId='" + Utils.b64DecodeUnicode(param.searchValue) + "' "
+    let base64UserIdSql = " userId='" + param.searchValue + "' "
+    if (customerKeyList.length) {
+      customerKeyList.forEach((customerKey, index) => {
+        if (index === customerKeyList.length -1) {
+          customerKeySql += " customerKey='" + customerKey + "' "
+        } else {
+          customerKeySql += " customerKey='" + customerKey + "' or "
+        }
+      })
+      customerKeySql = " (" + customerKeySql + ") "
+    } else {
+      // 如果userId查不到，则用customerKey来进行查询
+      const customerKey = Utils.b64DecodeUnicode(param.searchValue)
+      customerKeySql += " customerKey='" + customerKey + "' "
+    }
+
+    await BehaviorInfoModel.getBehaviorsByUser(webMonitorIdSql, customerKeySql, happenTimeSql).then((res) => {
+      result1 = res
+    })
+    await CustomerPVModel.getBehaviorsByUser(webMonitorIdSql, customerKeySql, happenTimeSql).then((res) => {
+      result2 = res
+    })
+    await JavascriptErrorInfoModel.getBehaviorsByUser(webMonitorIdSql, customerKeySql, happenTimeSql).then((res) => {
+      result3 = res
+    })
+    await ScreenShotInfoModel.getBehaviorsByUser(webMonitorIdSql, happenTimeSql, base64UserIdSql).then((res) => {
+      result4 = res
+    })
+    await HttpLogInfoModel.getHttpLogsByUser(webMonitorIdSql, customerKeySql, happenTimeSql).then((res) => {
+      result5 = res
+    })
+    await ExtendBehaviorInfoModel.getExtendBehaviorInfoByUserId(happenTimeSql, userIdSql).then((res) => {
+      result6 = res
+    })
+    await ResourceLoadInfo.getResourceLoadInfoByUserId(webMonitorIdSql, customerKeySql, happenTimeSql).then((res) => {
+      result7 = res
+    })
+
+    result = result.concat(result1, result2, result3, result5, result6, result7)
+    result4.forEach((item) => {
+      item.screenInfo = (item.screenInfo || "").toString()
+      result.push(item)
+    })
+    ctx.response.status = 200;
+    ctx.body = statusCode.SUCCESS_200('创建信息成功', {behaviorList: result})
+  }
+
+  /**
+   * 根据userId，查询出该用户详细信息
+   * @param ctx
+   * @returns {Promise.<void>}
+   */
+  static async searchCustomerInfo(ctx) {
+    const param = JSON.parse(ctx.request.body)
+    param.happenTimeScope = new Date(Utils.addDays(0 - param.timeScope) + " 00:00:00").getTime()
+    let customerKeyList = []
     let pvCountList = null
     let loadPageTimeList = null
     let ipPath = ""
     let cusDetail = null
+    let startDateTime = new Date().getTime()
     // 查询当前用户的customerKey列表
     await CustomerPVModel.getCustomerKeyByUserId(param).then((res) => {
       res.forEach((customerKeyInfo) => {
@@ -142,47 +215,30 @@ class Common {
       })
     })
     let customerKeySql = ""
-    let userIdSql = "userId='" + Utils.b64DecodeUnicode(param.searchValue) + "' "
+    let webMonitorIdSql = " webMonitorId='" + param.webMonitorId + "' "
+    let happenTimeSql = " happenTime>" + param.happenTimeScope + " "
     if (customerKeyList.length) {
       customerKeyList.forEach((customerKey, index) => {
         if (index === customerKeyList.length -1) {
-          customerKeySql += "happenTime>" + param.happenTimeScope + " and customerKey='" + customerKey + "' "
+          customerKeySql += " customerKey='" + customerKey + "' "
         } else {
-          customerKeySql += "happenTime>" + param.happenTimeScope + " and customerKey='" + customerKey + "' or "
+          customerKeySql += " customerKey='" + customerKey + "' or "
         }
       })
+      customerKeySql = " (" + customerKeySql + ") "
     } else {
       // 如果userId查不到，则用customerKey来进行查询
       const customerKey = Utils.b64DecodeUnicode(param.searchValue)
-      customerKeySql += "happenTime>" + param.happenTimeScope + " and customerKey='" + customerKey + "' "
+      customerKeySql += " customerKey='" + customerKey + "' "
     }
-
-    await BehaviorInfoModel.getBehaviorsByUser(param, customerKeySql).then((res) => {
-      result1 = res
-    })
-    await CustomerPVModel.getBehaviorsByUser(param, customerKeySql).then((res) => {
-      result2 = res
-    })
-    await JavascriptErrorInfoModel.getBehaviorsByUser(param, customerKeySql).then((res) => {
-      result3 = res
-    })
-    await ScreenShotInfoModel.getBehaviorsByUser(param, customerKeySql).then((res) => {
-      result4 = res
-    })
-    await HttpLogInfoModel.getHttpLogsByUser(param, customerKeySql).then((res) => {
-      result5 = res
-    })
-    await ExtendBehaviorInfoModel.getExtendBehaviorInfoByUserId(userIdSql).then((res) => {
-      res.forEach((r) => {
-        r.happenTime = new Date(r.createdAt).getTime()
-      })
-      result6 = res
-    })
-    await CustomerPVModel.getCustomerPVDetailByCustomerKey(param, customerKeySql).then((res) => {
+    await CustomerPVModel.getCustomerPVDetailByCustomerKey(webMonitorIdSql, customerKeySql, happenTimeSql).then((res) => {
       cusDetail = res[0]
       if (cusDetail) {
         ipPath = "http://ip.taobao.com/service/getIpInfo.php?ip=" + cusDetail.monitorIp
       }
+      let currentDateTime = new Date().getTime()
+      console.log("个人信息获取时间：", currentDateTime - startDateTime)
+      startDateTime = currentDateTime
     })
     if (ipPath) {
       try {
@@ -207,25 +263,19 @@ class Common {
     }
     await CustomerPVModel.getPVsByCustomerKey(param, customerKeySql).then((res) => {
       pvCountList = res
+      let currentDateTime = new Date().getTime()
+      console.log("PVcount获取时间：", currentDateTime - startDateTime)
+      startDateTime = currentDateTime
     })
 
     await LoadPageModel.getPageLoadTimeByCustomerKey(param, customerKeySql).then((res) => {
       loadPageTimeList = res
-    })
-
-    result = result.concat(result1, result2, result3, result5, result6)
-    result4.forEach((item) => {
-      item.screenInfo = (item.screenInfo || "").toString()
-      result.push(item)
+      let currentDateTime = new Date().getTime()
+      console.log("loadPage获取时间：", currentDateTime - startDateTime)
+      startDateTime = currentDateTime
     })
     ctx.response.status = 200;
-    ctx.body = statusCode.SUCCESS_200('创建信息成功', {behaviorList: result, pvCountList, loadPageTimeList, cusDetail})
-  }
-
-  /**
-   * 启动数据删除， 只记录最近15天的数据
-   */
-  static async startDelete() {
+    ctx.body = statusCode.SUCCESS_200('创建信息成功', {pvCountList, loadPageTimeList, cusDetail})
   }
 
   /**

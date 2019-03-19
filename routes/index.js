@@ -8,12 +8,11 @@ const IgnoreErrorController = require('../controllers/ignoreError')
 const CustomerPVController = require('../controllers/customerPV')
 const LoadPageController = require('../controllers/loadPageInfo')
 const ExtendBehaviorInfo = require('../controllers/extendBehaviorInfo')
+const ResourceLoadInfo = require('../controllers/resourceLoadInfo')
 const CommonController = require('../controllers/common')
 const router = new Router({
     prefix: '/server'
 })
-
-CommonController.startDelete();
 
 /**
  * 日志相关处理
@@ -36,6 +35,9 @@ router.get('/data', CommonController.liBangData);
  */
 // 查询用户的行为列表
 router.post('/searchUserBehaviors', CommonController.searchBehaviorsRecord);
+// 查询用户的基本信息
+router.post('/searchCustomerInfo', CommonController.searchCustomerInfo);
+
 
 /**
  * 用户接口
@@ -165,7 +167,11 @@ router.delete('/ignoreError/:id', IgnoreErrorController.delete);
 // 更改忽略js错误信息
 router.put('/ignoreError/:id', IgnoreErrorController.update);
 
-
+/**
+ * 静态资源加载状态接口
+ */
+// 获取静态资源错误分类
+router.get('/getResourceLoadInfoListByDay', ResourceLoadInfo.getResourceLoadInfoListByDay);
 
 
 module.exports = router

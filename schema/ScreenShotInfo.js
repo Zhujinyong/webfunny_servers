@@ -20,7 +20,13 @@ module.exports = function (sequelize, DataTypes) {
       type: "mediumblob",
       allowNull: true,
       field: 'screenInfo'
-    }
+    },
+    // 图片类型
+    imgType: {
+      type: DataTypes.STRING(20),
+      allowNull: true,
+      field: 'imgType'
+    },
   }, {
     // 如果为 true 则表的名称和 model 相同，即 user
     // 为 false MySQL创建的表名称会是复数 users
