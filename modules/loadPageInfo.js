@@ -72,8 +72,8 @@ class LoadPageInfoModel {
   /**
    * 根据customerKey获取用户访问每个页面的平均请求时间，判断网络状态
    */
-  static async getPageLoadTimeByCustomerKey(param, customerKeySql) {
-    let sql = "SELECT CAST(simpleUrl AS char) as simpleUrl, COUNT(simpleUrl) as urlCount, AVG(loadPage) as loadPage, AVG(domReady) as domReady, AVG(request) as resource, AVG(lookupDomain) as DNS from LoadPageInfos where loadPage>0 and " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' GROUP BY simpleUrl ORDER BY urlCount desc"
+  static async getPageLoadTimeByCustomerKey(webMonitorIdSql, customerKeySql, happenTimeSql) {
+    let sql = "SELECT CAST(simpleUrl AS char) as simpleUrl, COUNT(simpleUrl) as urlCount, AVG(loadPage) as loadPage, AVG(domReady) as domReady, AVG(request) as resource, AVG(lookupDomain) as DNS from LoadPageInfos where loadPage>0 and " + happenTimeSql + "and" + customerKeySql + " and " + webMonitorIdSql + " GROUP BY simpleUrl ORDER BY urlCount desc"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 

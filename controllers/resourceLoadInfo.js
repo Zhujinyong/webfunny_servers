@@ -123,6 +123,25 @@ class ResourceLoadInfoController {
       }
     })
   }
+
+  /**
+   * 获取每天静态资源加载错误数量列表
+   * @returns {Promise.<void>}
+   */
+  static async getResourceErrorCountByDay(ctx) {
+    const param = utils.parseQs(ctx.request.url)
+    await ResourceLoadInfoModel.getResourceErrorCountByDay(param).then(data => {
+      if (data) {
+        ctx.response.status = 200;
+        ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', data)
+      } else {
+        ctx.response.status = 412;
+        ctx.body = statusCode.ERROR_412('查询信息列表失败！');
+      }
+    })
+  }
+
+
 }
 
 module.exports = ResourceLoadInfoController

@@ -251,7 +251,7 @@ class JavascriptErrorInfoModel {
    * 获取当前用户所有的行为记录
    * @returns {Promise<*>}
    */
-  static async getBehaviorsByUser(param, customerKeySql) {
+  static async getBehaviorsByUser(webMonitorIdSql, customerKeySql, happenTimeSql) {
     // var phoneReg = /^1\d{10}$/
     // var sql = ""
     // if (phoneReg.test(param.searchValue)) {
@@ -261,7 +261,7 @@ class JavascriptErrorInfoModel {
     // }
     // return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
 
-    let sql = "select * from JavascriptErrorInfos where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' "
+    let sql = "select * from JavascriptErrorInfos where " + customerKeySql + " and " + happenTimeSql + " and " + webMonitorIdSql
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 }

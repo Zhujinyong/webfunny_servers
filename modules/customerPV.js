@@ -117,11 +117,11 @@ class CustomerPVModel {
   static async getCustomerKeyByUserId(param) {
     const createdAtTime = Utils.addDays(0 - param.timeScope) + " 00:00:00"
     const sql =
-      "select DISTINCT(customerKey) from CustomerPVs where createdAt>'" + createdAtTime + "' and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
+      "select DISTINCT(customerKey) from CustomerPVs where createdAt>'" + createdAtTime + "' and userId='" + param.searchValue + "'"
       + " UNION " +
-      "select DISTINCT(customerKey) from behaviorInfos where createdAt>'" + createdAtTime + "' and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
+      "select DISTINCT(customerKey) from behaviorInfos where createdAt>'" + createdAtTime + "' and userId='" + param.searchValue + "'"
       + " UNION " +
-      "select DISTINCT(customerKey) from HttpLogInfos where createdAt>'" + createdAtTime + "' and webMonitorId='" + param.webMonitorId + "' and userId='" + param.searchValue + "'"
+      "select DISTINCT(customerKey) from HttpLogInfos where createdAt>'" + createdAtTime + "' and userId='" + param.searchValue + "'"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
@@ -136,8 +136,8 @@ class CustomerPVModel {
   /**
    * 根据customerKey获取用户访问每个页面的次数
    */
-  static async getPVsByCustomerKey(param, customerKeySql) {
-    let sql = "select CAST(simpleUrl AS char) as simpleUrl, count(simpleUrl) from CustomerPVs where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' GROUP BY simpleUrl "
+  static async getPVsByCustomerKey(webMonitorIdSql, customerKeySql, happenTimeSql) {
+    let sql = "select CAST(simpleUrl AS char) as simpleUrl, count(simpleUrl) from CustomerPVs where " + happenTimeSql + "and" + customerKeySql + " and " + webMonitorIdSql + " GROUP BY simpleUrl "
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 

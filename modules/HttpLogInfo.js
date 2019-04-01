@@ -73,8 +73,8 @@ class HttpLogInfoModel {
    * 获取当前用户所有的请求记录
    * @returns {Promise<*>}
    */
-  static async getHttpLogsByUser(param, customerKeySql) {
-    let sql = "select * from HttpLogInfos where " + customerKeySql + " and webMonitorId='" + param.webMonitorId + "' "
+  static async getHttpLogsByUser(webMonitorIdSql, customerKeySql, happenTimeSql) {
+    let sql = "select * from HttpLogInfos where " + customerKeySql + " and " + happenTimeSql + " and " + webMonitorIdSql
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 

@@ -144,7 +144,7 @@ class Common {
       startDateTime = currentDateTime
     })
     let customerKeySql = ""
-    let webMonitorIdSql = " webMonitorId='" + param.webMonitorId + "' "
+    let webMonitorIdSql = "1=1" // " webMonitorId='" + param.webMonitorId + "' "
     let happenTimeSql = " happenTime>" + param.happenTimeScope + " "
     let userIdSql = " userId='" + Utils.b64DecodeUnicode(param.searchValue) + "' "
     let base64UserIdSql = " userId='" + param.searchValue + "' "
@@ -215,7 +215,7 @@ class Common {
       })
     })
     let customerKeySql = ""
-    let webMonitorIdSql = " webMonitorId='" + param.webMonitorId + "' "
+    let webMonitorIdSql = " 1=1 "
     let happenTimeSql = " happenTime>" + param.happenTimeScope + " "
     if (customerKeyList.length) {
       customerKeyList.forEach((customerKey, index) => {
@@ -261,14 +261,14 @@ class Common {
       }
 
     }
-    await CustomerPVModel.getPVsByCustomerKey(param, customerKeySql).then((res) => {
+    await CustomerPVModel.getPVsByCustomerKey(webMonitorIdSql, customerKeySql, happenTimeSql).then((res) => {
       pvCountList = res
       let currentDateTime = new Date().getTime()
       console.log("PVcount获取时间：", currentDateTime - startDateTime)
       startDateTime = currentDateTime
     })
 
-    await LoadPageModel.getPageLoadTimeByCustomerKey(param, customerKeySql).then((res) => {
+    await LoadPageModel.getPageLoadTimeByCustomerKey(webMonitorIdSql, customerKeySql, happenTimeSql).then((res) => {
       loadPageTimeList = res
       let currentDateTime = new Date().getTime()
       console.log("loadPage获取时间：", currentDateTime - startDateTime)

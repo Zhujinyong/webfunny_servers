@@ -171,7 +171,7 @@ router.put('/ignoreError/:id', IgnoreErrorController.update);
  * 静态资源加载状态接口
  */
 // 获取静态资源错误分类
-router.get('/getResourceLoadInfoListByDay', ResourceLoadInfo.getResourceLoadInfoListByDay);
+router.get('/getResourceErrorCountByDay', ResourceLoadInfo.getResourceErrorCountByDay);
 
 
 module.exports = router

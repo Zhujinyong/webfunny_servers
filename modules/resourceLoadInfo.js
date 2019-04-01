@@ -81,11 +81,19 @@ class ResourceLoadInfoModel {
    * 获取当前用户所有的日志加载失败记录
    * @returns {Promise<*>}
    */
-  static async getResourceLoadInfoListByDay() {
-    let sql = "select sourceUrl, COUNT(sourceUrl) as count from ResourceLoadInfos GROUP BY sourceUrl "
+  static async getResourceLoadInfoListByDay(param) {
+    let sql = "select DATE_FORMAT(createdAt,'%Y-%m-%d') as day, count(id) as count from ResourceLoadInfos WHERE webMonitorId='" + param.webMonitorId + "' and DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= createdAt GROUP BY day"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
+  /**
+   * 获取当前用户所有的日志加载失败记录列表
+   * @returns {Promise<*>}
+   */
+  static async getResourceErrorCountByDay(param) {
+    let sql = "select DATE_FORMAT(createdAt,'%Y-%m-%d') as day, count(id) as count from ResourceLoadInfos WHERE webMonitorId='" + param.webMonitorId + "' and DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= createdAt GROUP BY day"
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
 
 }
 
