@@ -172,6 +172,7 @@ router.put('/ignoreError/:id', IgnoreErrorController.update);
  */
 // 获取静态资源错误分类
 router.get('/getResourceErrorCountByDay', ResourceLoadInfo.getResourceErrorCountByDay);
+router.get('/getResourceLoadInfoListByDay', ResourceLoadInfo.getResourceLoadInfoListByDay);
 
 
 module.exports = router

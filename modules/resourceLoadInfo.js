@@ -1,6 +1,7 @@
 const db = require('../config/db')
 const Sequelize = db.sequelize;
 const ResourceLoadInfo = Sequelize.import('../schema/resourceLoadInfo');
+const Utils = require("../util/utils")
 ResourceLoadInfo.sync({force: false});
 
 class ResourceLoadInfoModel {
@@ -82,7 +83,8 @@ class ResourceLoadInfoModel {
    * @returns {Promise<*>}
    */
   static async getResourceLoadInfoListByDay(param) {
-    let sql = "select DATE_FORMAT(createdAt,'%Y-%m-%d') as day, count(id) as count from ResourceLoadInfos WHERE webMonitorId='" + param.webMonitorId + "' and DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= createdAt GROUP BY day"
+    const day = new Date().Format("yyyy-MM-dd") + " 00:00:00"
+    let sql = "select sourceUrl, COUNT(sourceUrl) as count from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "'  and createdAt > '" + day + "' GROUP BY sourceUrl ORDER BY count desc"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
