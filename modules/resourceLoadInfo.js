@@ -84,7 +84,7 @@ class ResourceLoadInfoModel {
    */
   static async getResourceLoadInfoListByDay(param) {
     const day = new Date().Format("yyyy-MM-dd") + " 00:00:00"
-    let sql = "select sourceUrl, COUNT(sourceUrl) as count from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "'  and createdAt > '" + day + "' GROUP BY sourceUrl ORDER BY count desc"
+    let sql = "select sourceUrl, COUNT(sourceUrl) as count from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "'  and createdAt > '" + day + "' GROUP BY sourceUrl ORDER BY count desc limit 20"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
