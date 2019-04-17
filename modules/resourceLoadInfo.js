@@ -97,6 +97,14 @@ class ResourceLoadInfoModel {
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
+  /**
+   * 获取某小时内，错误总数
+   * @returns {Promise<*>}
+   */
+  static async getResourceErrorInfoListByHour(startTime, endTime, param) {
+    return await Sequelize.query("SELECT COUNT(*) as count from ResourceLoadInfos where  webMonitorId='" + param.webMonitorId + "' and  createdAt > '" + startTime + "' and createdAt < '" + endTime + "'", { type: Sequelize.QueryTypes.SELECT})
+  }
+
 }
 
 module.exports = ResourceLoadInfoModel

@@ -127,7 +127,7 @@ router.get('/getJavascriptErrorInfoListByDay', JavascriptErrorInfo.getJavascript
 router.get('/getJavascriptErrorInfoListByHour', JavascriptErrorInfo.getJavascriptErrorInfoListByHour);
 // 根据JS错误数量进行分类排序
 router.post('/getJavascriptErrorSort', JavascriptErrorInfo.getJavascriptErrorSort);
-// 获取最近六小时内，js错误发生数量
+// 获取最近24小时内，js错误发生数量
 router.get('/getJavascriptErrorCountByHour', JavascriptErrorInfo.getJavascriptErrorCountByHour);
 // 获取各种平台js报错熟练
 router.get('/getJavascriptErrorCountByOs', JavascriptErrorInfo.getJavascriptErrorCountByOs);
@@ -173,6 +173,7 @@ router.put('/ignoreError/:id', IgnoreErrorController.update);
 // 获取静态资源错误分类
 router.get('/getResourceErrorCountByDay', ResourceLoadInfo.getResourceErrorCountByDay);
 router.get('/getResourceLoadInfoListByDay', ResourceLoadInfo.getResourceLoadInfoListByDay);
-
+// 获取最近24小时内，js错误发生数量
+router.get('/getResourceErrorCountByHour', ResourceLoadInfo.getResourceErrorCountByHour);
 
 module.exports = router
