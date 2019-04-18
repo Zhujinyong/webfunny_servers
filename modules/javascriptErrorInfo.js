@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 const db = require('../config/db')
 const utils = require("../util/utils")
+const CommonSql = require("../util/commonSql")
 const Sequelize = db.sequelize;
 const JavascriptErrorInfo = Sequelize.import('../schema/javascriptErrorInfo');
 JavascriptErrorInfo.sync({force: false});
@@ -85,16 +86,9 @@ class JavascriptErrorInfoModel {
   static async getJavascriptErrorSort(param) {
     const { simpleUrl, timeType } = param
     const queryStr1 = simpleUrl ? " and simpleUrl='" + simpleUrl + "' " : " "
-    let queryStr2 = ""
-    if (timeType === "month") {
-      const start = utils.addDays(-7)
-      queryStr2 = " and createdAt > '" + start + "'"
-    } else {
-      const start = utils.addDays(0)
-      queryStr2 = " and createdAt > '" + start + "'"
-    }
-    const queryStr = queryStr1 + queryStr2
-    return await Sequelize.query("select errorMessage, count(errorMessage) as count from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " GROUP BY errorMessage order by count desc limit 0,15", { type: Sequelize.QueryTypes.SELECT})
+    const queryStr = queryStr1 + CommonSql.createTimeScopeSql(timeType)
+    const sql = "select errorMessage, count(errorMessage) as count from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " GROUP BY errorMessage order by count desc limit 0,15"
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
   /**
    * 根据errorMessage查询这一类错误不同平台的数量
@@ -103,15 +97,7 @@ class JavascriptErrorInfoModel {
   static async getPerJavascriptErrorCountByOs(tempErrorMsg, param) {
     const { simpleUrl, timeType } = param
     const queryStr1 = simpleUrl ? " and simpleUrl='" + simpleUrl + "' " : " "
-    let queryStr2 = ""
-    if (timeType === "month") {
-      const start = utils.addDays(-30)
-      queryStr2 = " and createdAt > '" + start + "'"
-    } else {
-      const start = utils.addDays(0)
-      queryStr2 = " and createdAt > '" + start + "'"
-    }
-    const queryStr = queryStr1 + queryStr2
+    const queryStr = queryStr1 + CommonSql.createTimeScopeSql(timeType)
     const errorMsg = tempErrorMsg.replace(/'/g, "\\'")
     return await Sequelize.query("SELECT tab.os as os, count(tab.os) as count from (select SUBSTRING(os,1,3) as os from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " and  errorMessage like '%" + errorMsg + "%') as tab GROUP BY os order by count desc", { type: Sequelize.QueryTypes.SELECT})
   }
@@ -164,14 +150,7 @@ class JavascriptErrorInfoModel {
    */
   static async getJavascriptErrorListByPage(param) {
     const { timeType } = param
-    let queryStr = ""
-    if (timeType === "month") {
-      const start = utils.addDays(-30)
-      queryStr = " where webMonitorId='" + param.webMonitorId + "' and  createdAt > '" + start + "'"
-    } else {
-      const start = utils.addDays(0)
-      queryStr = " where webMonitorId='" + param.webMonitorId + "' and  createdAt > '" + start + "'"
-    }
+    const queryStr = " where webMonitorId='" + param.webMonitorId + "' " + CommonSql.createTimeScopeSql(timeType)
     return await Sequelize.query("select simpleUrl, COUNT(simpleUrl) as count from JavascriptErrorInfos " + queryStr + " GROUP BY simpleUrl ORDER BY count desc", { type: Sequelize.QueryTypes.SELECT})
   }
 
