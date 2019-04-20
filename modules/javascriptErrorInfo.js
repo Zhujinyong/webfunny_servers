@@ -64,11 +64,30 @@ class JavascriptErrorInfoModel {
   }
 
   /**
-   * 获取某小时内，错误总数
+   * 获取24小时内，每小时的错误量
    * @returns {Promise<*>}
    */
-  static async getJavascriptErrorInfoListByHour(startTime, endTime, param) {
-    return await Sequelize.query("SELECT COUNT(*) as count from JavascriptErrorInfos where  webMonitorId='" + param.webMonitorId + "' and  createdAt > '" + startTime + "' and createdAt < '" + endTime + "'", { type: Sequelize.QueryTypes.SELECT})
+  static async getJavascriptErrorInfoListByHour(param) {
+    const sql = "SELECT DATE_FORMAT(createdAt,'%m-%d %H') AS hour, COUNT(id) AS count " +
+                "FROM JavascriptErrorInfos " +
+                "WHERE webMonitorId='" + param.webMonitorId + "' and DATE_FORMAT(NOW() - INTERVAL 23 HOUR, '%Y-%m-%d %H') <= createdAt " +
+                "GROUP BY HOUR"
+    // return await Sequelize.query("SELECT COUNT(*) as count from JavascriptErrorInfos where  webMonitorId='" + param.webMonitorId + "' and  createdAt > '" + startTime + "' and createdAt < '" + endTime + "'", { type: Sequelize.QueryTypes.SELECT})
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+  /**
+   * 获取7天前，24小时内，每小时的错误量
+   * @returns {Promise<*>}
+   */
+  static async getJavascriptErrorInfoListSevenDayAgoByHour(param) {
+    const nowHour = new Date().getHours();
+    const sevenDayAgo = utils.addDays(-6) + " " + nowHour + ":00:00";
+    const sql = "SELECT DATE_FORMAT(createdAt,'%m-%d %H') AS hour, COUNT(id) AS count " +
+      "FROM JavascriptErrorInfos " +
+      "WHERE webMonitorId='" + param.webMonitorId + "' and createdAt<'" + sevenDayAgo + "' and DATE_FORMAT(DATE_SUB(NOW(),INTERVAL 6 DAY) - INTERVAL 23 HOUR, '%Y-%m-%d %H') <= createdAt " +
+      "GROUP BY HOUR"
+    // return await Sequelize.query("SELECT COUNT(*) as count from JavascriptErrorInfos where  webMonitorId='" + param.webMonitorId + "' and  createdAt > '" + startTime + "' and createdAt < '" + endTime + "'", { type: Sequelize.QueryTypes.SELECT})
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
   /**
