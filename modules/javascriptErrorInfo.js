@@ -80,8 +80,15 @@ class JavascriptErrorInfoModel {
    * @returns {Promise<*>}
    */
   static async getJavascriptErrorInfoListSevenDayAgoByHour(param) {
-    const nowHour = new Date().getHours();
-    const sevenDayAgo = utils.addDays(-6) + " " + nowHour + ":00:00";
+    const tempNowHour = new Date().getHours();
+    let nowHour = tempNowHour
+    let sevenDayAgo = ""
+    if (tempNowHour === 23) {
+      sevenDayAgo = utils.addDays(-5) + " 00:00:00";
+    } else {
+      nowHour = nowHour + 1
+      sevenDayAgo = utils.addDays(-6) + " " + nowHour + ":00:00";
+    }
     const sql = "SELECT DATE_FORMAT(createdAt,'%m-%d %H') AS hour, COUNT(id) AS count " +
       "FROM JavascriptErrorInfos " +
       "WHERE webMonitorId='" + param.webMonitorId + "' and createdAt<'" + sevenDayAgo + "' and DATE_FORMAT(DATE_SUB(NOW(),INTERVAL 6 DAY) - INTERVAL 23 HOUR, '%Y-%m-%d %H') <= createdAt " +
