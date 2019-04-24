@@ -9,6 +9,7 @@ const CustomerPVController = require('../controllers/customerPV')
 const LoadPageController = require('../controllers/loadPageInfo')
 const ExtendBehaviorInfo = require('../controllers/extendBehaviorInfo')
 const ResourceLoadInfo = require('../controllers/resourceLoadInfo')
+const HttpLogInfo = require('../controllers/HttpLogInfo')
 const CommonController = require('../controllers/common')
 const router = new Router({
     prefix: '/server'
@@ -175,5 +176,12 @@ router.get('/getResourceErrorCountByDay', ResourceLoadInfo.getResourceErrorCount
 router.get('/getResourceLoadInfoListByDay', ResourceLoadInfo.getResourceLoadInfoListByDay);
 // 获取最近24小时内，js错误发生数量
 router.get('/getResourceErrorCountByHour', ResourceLoadInfo.getResourceErrorCountByHour);
+
+
+/**
+ * 静态资源加载状态接口
+ */
+// 获取静态资源错误分类
+router.get('/getHttpErrorCountByHour', HttpLogInfo.getHttpErrorInfoListByHour);
 
 module.exports = router

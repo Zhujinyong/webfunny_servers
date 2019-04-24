@@ -1,6 +1,6 @@
 const HttpLogInfoModel = require('../modules/HttpLogInfo')
 const statusCode = require('../util/status-code')
-
+const utils = require('../util/utils');
 class HttpLogInfoController {
   /**
    * 创建信息
@@ -105,6 +105,25 @@ class HttpLogInfoController {
       ctx.response.status = 412;
       ctx.body = statusCode.ERROR_412('更新信息失败！')
     }
+  }
+
+  /**
+   * 根据时间获取一天内JS错误的数量信息
+   * @param ctx
+   * @returns {Promise.<void>}
+   */
+  static async getHttpErrorInfoListByHour(ctx) {
+    const param = utils.parseQs(ctx.request.url)
+    let result1 = []
+    await HttpLogInfoModel.getHttpErrorInfoListByHour(param).then(data => {
+      result1 = data;
+    })
+    let result2 = []
+    await HttpLogInfoModel.getHttpErrorInfoListSevenDayAgoByHour(param).then(data => {
+      result2 = data;
+    })
+    ctx.response.status = 200;
+    ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', {today: result1, seven: result2})
   }
 }
 

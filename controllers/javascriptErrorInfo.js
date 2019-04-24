@@ -70,37 +70,6 @@ class JavascriptErrorInfoController {
    */
   static async getJavascriptErrorInfoListByHour(ctx) {
     const param = utils.parseQs(ctx.request.url)
-    // const result1 = [];
-    // const nowDate = new Date();
-    // const year = nowDate.getFullYear();
-    // const month = nowDate.getMonth() + 1;
-    // const day = nowDate.getDate();
-    // const nowHour = nowDate.getHours();
-    // let hour = nowHour;
-    // const startTimeStr = year + "-" + month + "-" + day + " ";
-    // const endTimeStr = year + "-" + month + "-" + day + " ";
-    // let startTime = startTimeStr + hour + ":00:00";
-    // let endTime = endTimeStr + hour + ":59:59";
-    // for (var i = 23; i >= 0; i -- ) {
-    //   hour = nowHour - i;
-    //   if (hour < 0) continue;
-    //   startTime = startTimeStr + hour + ":00:00";
-    //   endTime = endTimeStr + hour + ":59:59";
-    //   await JavascriptErrorInfoModel.getJavascriptErrorInfoListByHour(startTime, endTime, param).then(data => {
-    //     result1.push({day: hour + "点", count: data[0].count});
-    //   })
-    // }
-    // const result2 = []
-    // for (var i = 23; i >= 0; i --) {
-    //   hour = nowHour - i;
-    //   if (hour < 0) continue;
-    //   startTime = utils.addDays(-7) + " " + hour + ":00:00";
-    //   endTime = utils.addDays(-7) + " " + hour + ":59:59";
-    //   await JavascriptErrorInfoModel.getJavascriptErrorInfoListByHour(startTime, endTime, param).then(data => {
-    //     result2.push({day: hour + "点", count: data[0].count});
-    //   })
-    // }
-
     let result1 = []
     await JavascriptErrorInfoModel.getJavascriptErrorInfoListByHour(param).then(data => {
       result1 = data;

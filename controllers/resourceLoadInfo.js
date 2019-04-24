@@ -148,28 +148,37 @@ class ResourceLoadInfoController {
    */
   static async getResourceErrorCountByHour(ctx) {
     const param = utils.parseQs(ctx.request.url)
-    const result = [];
-    const nowDate = new Date();
-    const year = nowDate.getFullYear();
-    const month = nowDate.getMonth() + 1;
-    const day = nowDate.getDate();
-    const nowHour = nowDate.getHours();
-    let hour = nowHour;
-    const startTimeStr = year + "-" + month + "-" + day + " ";
-    const endTimeStr = year + "-" + month + "-" + day + " ";
-    let startTime = startTimeStr + hour + ":00:00";
-    let endTime = endTimeStr + hour + ":59:59";
-    for (var i = 23; i >= 0; i -- ) {
-      hour = nowHour - i;
-      if (hour < 0) continue;
-      startTime = startTimeStr + hour + ":00:00";
-      endTime = endTimeStr + hour + ":59:59";
-      await ResourceLoadInfoModel.getResourceErrorInfoListByHour(startTime, endTime, param).then(data => {
-        result.push({day: hour + "点", count: data[0].count});
-      })
-    }
+    // const result = [];
+    // const nowDate = new Date();
+    // const year = nowDate.getFullYear();
+    // const month = nowDate.getMonth() + 1;
+    // const day = nowDate.getDate();
+    // const nowHour = nowDate.getHours();
+    // let hour = nowHour;
+    // const startTimeStr = year + "-" + month + "-" + day + " ";
+    // const endTimeStr = year + "-" + month + "-" + day + " ";
+    // let startTime = startTimeStr + hour + ":00:00";
+    // let endTime = endTimeStr + hour + ":59:59";
+    // for (var i = 23; i >= 0; i -- ) {
+    //   hour = nowHour - i;
+    //   if (hour < 0) continue;
+    //   startTime = startTimeStr + hour + ":00:00";
+    //   endTime = endTimeStr + hour + ":59:59";
+    //   await ResourceLoadInfoModel.getResourceErrorInfoListByHour(startTime, endTime, param).then(data => {
+    //     result.push({day: hour + "点", count: data[0].count});
+    //   })
+    // }
+
+    let result1 = []
+    await ResourceLoadInfoModel.getResourceLoadErrorInfoListByHour(param).then(data => {
+      result1 = data;
+    })
+    let result2 = []
+    await ResourceLoadInfoModel.getResourceLoadErrorInfoListSevenDayAgoByHour(param).then(data => {
+      result2 = data;
+    })
     ctx.response.status = 200;
-    ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', result)
+    ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', {today: result1, seven: result2})
   }
 
 }
