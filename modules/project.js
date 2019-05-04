@@ -68,6 +68,14 @@ class ProjectModel {
     return true
   }
 
+  /**
+   *
+   */
+  static async checkProjectName(projectName) {
+    let sql = "select count(*) as count from Projects where projectName='" + projectName + "'"
+    return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+
 }
 
 module.exports = ProjectModel

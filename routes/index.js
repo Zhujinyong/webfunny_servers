@@ -173,7 +173,7 @@ router.put('/ignoreError/:id', IgnoreErrorController.update);
  */
 // 获取静态资源错误分类
 router.get('/getResourceErrorCountByDay', ResourceLoadInfo.getResourceErrorCountByDay);
-router.get('/getResourceLoadInfoListByDay', ResourceLoadInfo.getResourceLoadInfoListByDay);
+router.post('/getResourceLoadInfoListByDay', ResourceLoadInfo.getResourceLoadInfoListByDay);
 // 获取最近24小时内，js错误发生数量
 router.get('/getResourceErrorCountByHour', ResourceLoadInfo.getResourceErrorCountByHour);
 
@@ -183,5 +183,11 @@ router.get('/getResourceErrorCountByHour', ResourceLoadInfo.getResourceErrorCoun
  */
 // 获取静态资源错误分类
 router.get('/getHttpErrorCountByHour', HttpLogInfo.getHttpErrorInfoListByHour);
+
+
+
+// 获取静态资源错误分类
+router.post('/createNewProject', ProjectController.createNewProject);
+
 
 module.exports = router

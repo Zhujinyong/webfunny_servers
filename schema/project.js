@@ -15,6 +15,12 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
       field: 'webMonitorId'
     },
+    // 项目类型
+    projectType: {
+      type: DataTypes.STRING(30),
+      allowNull: true,
+      field: 'projectType'
+    },
     // 项目名称
     projectName: {
       type: DataTypes.STRING(20),

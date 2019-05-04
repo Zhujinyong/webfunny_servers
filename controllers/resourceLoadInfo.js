@@ -112,16 +112,20 @@ class ResourceLoadInfoController {
    * @returns {Promise.<void>}
    */
   static async getResourceLoadInfoListByDay(ctx) {
-    const param = utils.parseQs(ctx.request.url)
+
+    const param = JSON.parse(ctx.request.body)
+    let resourceErrorSortList = null
     await ResourceLoadInfoModel.getResourceLoadInfoListByDay(param).then(data => {
-      if (data) {
-        ctx.response.status = 200;
-        ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', data)
-      } else {
-        ctx.response.status = 412;
-        ctx.body = statusCode.ERROR_412('查询信息列表失败！');
-      }
+      resourceErrorSortList = data
     })
+    for (let i = 0; i < resourceErrorSortList.length; i ++) {
+      await ResourceLoadInfoModel.getResourceErrorLatestTime(resourceErrorSortList[i].sourceUrl, param).then(data => {
+        resourceErrorSortList[i].createdAt = data[0].createdAt
+        resourceErrorSortList[i].happenTime = data[0].happenTime
+      })
+    }
+    ctx.response.status = 200;
+    ctx.body = statusCode.SUCCESS_200('查询信息列表成功！', resourceErrorSortList)
   }
 
   /**

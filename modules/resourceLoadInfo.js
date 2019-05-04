@@ -2,6 +2,7 @@ const db = require('../config/db')
 const Sequelize = db.sequelize;
 const ResourceLoadInfo = Sequelize.import('../schema/resourceLoadInfo');
 const Utils = require("../util/utils")
+const CommonSql = require("../util/commonSql")
 ResourceLoadInfo.sync({force: false});
 
 class ResourceLoadInfoModel {
@@ -83,9 +84,15 @@ class ResourceLoadInfoModel {
    * @returns {Promise<*>}
    */
   static async getResourceLoadInfoListByDay(param) {
-    const day = new Date().Format("yyyy-MM-dd") + " 00:00:00"
-    let sql = "select sourceUrl, COUNT(sourceUrl) as count from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "'  and createdAt > '" + day + "' GROUP BY sourceUrl ORDER BY count desc limit 20"
+    const { simpleUrl, timeType } = param
+    const queryStr1 = simpleUrl ? " and simpleUrl='" + simpleUrl + "' " : " "
+    const queryStr = queryStr1 + CommonSql.createTimeScopeSql(timeType)
+    const sql = "select sourceUrl, COUNT(sourceUrl) as count from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " GROUP BY sourceUrl order by count desc limit 0,20"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
+  }
+
+  static async getResourceErrorLatestTime(sourceUrl, param) {
+    return await Sequelize.query("select createdAt, happenTime from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "' and  sourceUrl= '" + sourceUrl + "' ORDER BY createdAt desc limit 1", { type: Sequelize.QueryTypes.SELECT})
   }
 
   /**
@@ -133,7 +140,7 @@ class ResourceLoadInfoModel {
     }
     const sql = "SELECT DATE_FORMAT(createdAt,'%m-%d %H') AS hour, COUNT(id) AS count " +
       "FROM ResourceLoadInfos " +
-      "WHERE webMonitorId='" + param.webMonitorId + "' and createdAt<'" + sevenDayAgo + "' and DATE_FORMAT(DATE_SUB(NOW(),INTERVAL 6 DAY) - INTERVAL 23 HOUR, '%Y-%m-%d %H') <= createdAt " +
+      "WHERE webMonitorId='" + param.webMonitorId + "' and createdAt<'" + sevenDayAgo + "' and DATE_FORMAT(DATE_SUB(NOW(),INTERVAL 7 DAY) - INTERVAL 23 HOUR, '%Y-%m-%d %H') <= createdAt " +
       "GROUP BY HOUR"
     // return await Sequelize.query("SELECT COUNT(*) as count from JavascriptErrorInfos where  webMonitorId='" + param.webMonitorId + "' and  createdAt > '" + startTime + "' and createdAt < '" + endTime + "'", { type: Sequelize.QueryTypes.SELECT})
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
