@@ -87,12 +87,47 @@ class ResourceLoadInfoModel {
     const { simpleUrl, timeType } = param
     const queryStr1 = simpleUrl ? " and simpleUrl='" + simpleUrl + "' " : " "
     const queryStr = queryStr1 + CommonSql.createTimeScopeSql(timeType)
-    const sql = "select sourceUrl, COUNT(sourceUrl) as count from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " GROUP BY sourceUrl order by count desc limit 0,20"
+    const sql = "select sourceUrl, COUNT(sourceUrl) as count from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " GROUP BY sourceUrl order by count desc"
     return await Sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT})
   }
 
+  /**
+   * 最近发生时间
+   * @param sourceUrl
+   * @param param
+   * @returns {Promise<*>}
+   */
   static async getResourceErrorLatestTime(sourceUrl, param) {
-    return await Sequelize.query("select createdAt, happenTime from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "' and  sourceUrl= '" + sourceUrl + "' ORDER BY createdAt desc limit 1", { type: Sequelize.QueryTypes.SELECT})
+    const { simpleUrl, timeType } = param
+    const queryStr1 = simpleUrl ? " and simpleUrl='" + simpleUrl + "' " : " "
+    const queryStr = queryStr1 + CommonSql.createTimeScopeSql(timeType)
+    return await Sequelize.query("select createdAt, happenTime from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " and  sourceUrl= '" + sourceUrl + "' ORDER BY createdAt desc limit 1", { type: Sequelize.QueryTypes.SELECT})
+  }
+
+  /**
+   * 影响多少页面
+   * @param sourceUrl
+   * @param param
+   * @returns {Promise<*>}
+   */
+  static async getPageCountByResourceError(sourceUrl, param) {
+    const { simpleUrl, timeType } = param
+    const queryStr1 = simpleUrl ? " and simpleUrl='" + simpleUrl + "' " : " "
+    const queryStr = queryStr1 + CommonSql.createTimeScopeSql(timeType)
+    return await Sequelize.query("SELECT count(DISTINCT simpleUrl) as pageCount from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " and sourceUrl='" + sourceUrl + "'", { type: Sequelize.QueryTypes.SELECT})
+  }
+
+  /**
+   * 影响了多少用户
+   * @param sourceUrl
+   * @param param
+   * @returns {Promise<*>}
+   */
+  static async getCustomerCountByResourceError(sourceUrl, param) {
+    const { simpleUrl, timeType } = param
+    const queryStr1 = simpleUrl ? " and simpleUrl='" + simpleUrl + "' " : " "
+    const queryStr = queryStr1 + CommonSql.createTimeScopeSql(timeType)
+    return await Sequelize.query("SELECT count(DISTINCT (customerKey)) as customerCount from ResourceLoadInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr + " and sourceUrl='" + sourceUrl + "'", { type: Sequelize.QueryTypes.SELECT})
   }
 
   /**

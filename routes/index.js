@@ -174,7 +174,7 @@ router.put('/ignoreError/:id', IgnoreErrorController.update);
 // 获取静态资源错误分类
 router.get('/getResourceErrorCountByDay', ResourceLoadInfo.getResourceErrorCountByDay);
 router.post('/getResourceLoadInfoListByDay', ResourceLoadInfo.getResourceLoadInfoListByDay);
-// 获取最近24小时内，js错误发生数量
+// 获取最近24小时内，静态资源加载错误发生数量
 router.get('/getResourceErrorCountByHour', ResourceLoadInfo.getResourceErrorCountByHour);
 
 

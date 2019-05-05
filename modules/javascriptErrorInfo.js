@@ -132,8 +132,11 @@ class JavascriptErrorInfoModel {
    * @returns {Promise<*>}
    */
   static async getJavascriptErrorLatestTime(tempErrorMsg, param) {
+    const { simpleUrl, timeType } = param
+    const queryStr1 = simpleUrl ? " and simpleUrl='" + simpleUrl + "' " : " "
+    const queryStr = queryStr1 + CommonSql.createTimeScopeSql(timeType)
     const errorMsg = tempErrorMsg.replace(/'/g, "\\'")
-    return await Sequelize.query("select createdAt, happenTime from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' and  errorMessage like '%" + errorMsg + "%' ORDER BY createdAt desc limit 1", { type: Sequelize.QueryTypes.SELECT})
+    return await Sequelize.query("select createdAt, happenTime from JavascriptErrorInfos where webMonitorId='" + param.webMonitorId + "' " + queryStr +  " and  errorMessage like '%" + errorMsg + "%' ORDER BY createdAt desc limit 1", { type: Sequelize.QueryTypes.SELECT})
   }
   /**
    * 获取JavascriptErrorInfo列表

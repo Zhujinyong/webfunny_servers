@@ -119,9 +119,18 @@ class ResourceLoadInfoController {
       resourceErrorSortList = data
     })
     for (let i = 0; i < resourceErrorSortList.length; i ++) {
+      // 查询最近发生时间
       await ResourceLoadInfoModel.getResourceErrorLatestTime(resourceErrorSortList[i].sourceUrl, param).then(data => {
         resourceErrorSortList[i].createdAt = data[0].createdAt
         resourceErrorSortList[i].happenTime = data[0].happenTime
+      })
+      // 查询影响页面
+      await ResourceLoadInfoModel.getPageCountByResourceError(resourceErrorSortList[i].sourceUrl, param).then(data => {
+        resourceErrorSortList[i].pageCount = data[0].pageCount
+      })
+      // 查询影响用户
+      await ResourceLoadInfoModel.getCustomerCountByResourceError(resourceErrorSortList[i].sourceUrl, param).then(data => {
+        resourceErrorSortList[i].customerCount = data[0].customerCount
       })
     }
     ctx.response.status = 200;
