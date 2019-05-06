@@ -120,7 +120,7 @@ class ProjectController {
             const count = parseInt(result[0].count)
             if (count <= 0) {
                 let monitorCode = ""
-                await fetch("http://www.webfunny.cn/resource/monitor.fetch.min.js")
+                await fetch("//live.webfunny.com/resource/monitor.fetch.min.js")
                   .then( res => res.text())
                   .then( body => {
                       monitorCode = encodeURIComponent(body.toString().replace(/jeffery_webmonitor/g, webMonitorId));
