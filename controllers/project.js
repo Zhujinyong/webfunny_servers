@@ -118,9 +118,10 @@ class ProjectController {
         if (data) {
             let result = await ProjectModel.checkProjectName(data.projectName)
             const count = parseInt(result[0].count)
+            
             if (count <= 0) {
                 let monitorCode = ""
-                await fetch("//live.webfunny.com/resource/monitor.fetch.min.js")
+                await fetch("http://live.webfunny.com/resource/monitor.fetch.min.js")
                   .then( res => res.text())
                   .then( body => {
                       monitorCode = encodeURIComponent(body.toString().replace(/jeffery_webmonitor/g, webMonitorId));
