@@ -15,13 +15,13 @@ module.exports = (DataTypes) => {
     },
     // 监控ID
     webMonitorId: {
-      type: DataTypes.STRING(36),
+      type: DataTypes.STRING(255),
       allowNull: true,
       field: 'webMonitorId'
     },
     // 用户标识ID
     customerKey: {
-      type: DataTypes.STRING(36),
+      type: DataTypes.STRING(255),
       allowNull: true,
       field: 'customerKey'
     },
@@ -39,7 +39,7 @@ module.exports = (DataTypes) => {
     },
     // 自定义用户标识ID
     userId: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true,
       field: 'userId'
     },

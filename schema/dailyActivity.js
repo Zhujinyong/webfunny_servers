@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     // 监控ID
     webMonitorId: {
-      type: DataTypes.STRING(36),
+      type: DataTypes.STRING(255),
       allowNull: true,
       field: 'webMonitorId'
     }

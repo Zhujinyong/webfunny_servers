@@ -12,15 +12,17 @@ const ResourceLoadInfo = require('../controllers/resourceLoadInfo')
 const HttpLogInfo = require('../controllers/HttpLogInfo')
 const CommonController = require('../controllers/common')
 const router = new Router({
-    prefix: '/server'
+    prefix: '/api/v1'
 })
+
+
 
 /**
  * 日志相关处理
  */
 // 用户上传日志
 router.post('/uploadLog', CommonController.uploadLog);
-router.post('/upLg', CommonController.upLg);
+router.post('/upLog', CommonController.upLg);
 
 // 上传拓展日志
 router.post('/uploadExtendLog', CommonController.uploadExtendLog);

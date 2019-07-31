@@ -1,17 +1,18 @@
-const sequelizeTemp = require('./local_db')
-const Sequelize = require('sequelize');
-let db = null
-if (sequelizeTemp && sequelizeTemp.sequelize) {
-  db = sequelizeTemp.sequelize
-} else {
-  const sequelize = new Sequelize('monitor_db', 'root', '1111a2222b', {
-    host: '10.155.10.9',
-    port: '3307',
+// const sequelizeTemp = require('./local_db')
+ const Sequelize = require('sequelize');
+ let db = null
+// if (sequelizeTemp && sequelizeTemp.sequelize) {
+//   db = sequelizeTemp.sequelize
+// } else 
+{
+  const sequelize = new Sequelize('monitor_db', 'root', '', {
+    host: '10.5.4.87',
+    port: '13306',
     dialect: 'mysql',
     operatorsAliases: false,
     dialectOptions: {
       charset: "utf8mb4",
-      collate: "utf8mb4_unicode_ci",
+      // collate: "utf8mb4_unicode_ci",
       supportBigNumbers: true,
       bigNumberStrings: true
     },
